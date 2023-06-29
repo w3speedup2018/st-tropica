@@ -1,35 +1,35 @@
 {% assign reviewCount = 1 %}
 
 <div class="item-container1 px-5">
-  <div class="review-carousel" data-flickity='{ "wrapAround": true, "groupCells": true, "contain": true, "pageDots": false, "cellAlign": "left", "imagesLoaded": true, "adaptiveHeight": true, "arrowShape": "m4.46,41.59L43.22,2.83c3.78-3.78,9.91-3.78,13.7,0,3.78,3.78,3.78,9.91,0,13.7L23.53,49.91l33.55,33.55c3.78,3.78,3.78,9.91,0,13.7-1.89,1.89-4.37,2.83-6.85,2.83s-4.96-.95-6.85-2.84L4.46,58.23c-.58-.37-4.46-4.45-4.46-8.32s3.88-7.95,4.46-8.32Z" }'>
+  <div class="review-carousel" data-flickity='{ "wrapAround": true, "groupCells": true, "contain": true, "pageDots": false, "cellAlign": "left", "imagesLoaded": true, "adaptiveHeight": true, "arrowShape": "M30.8 100 0 49.7 30.8 0l3.4 2.1L4.7 49.7l29.5 48.2z" }'>
     
     {% for i in (1..8) %}
     
     	{% if forloop.index == 1 %}
+          {% assign reviewimage = 'real_people_real_reviews_1.png' %}
+          {% assign reviewheading = "Fast hair growth results, less hair fall" %}
+          {% assign reviewcontent = "After two months I noticed my hair felt like it grew a significant length and my hair fall issue decreased Wich I usually have lost alot more strands. I'm feeling happy with the results" %}
+          {% assign reviewname = "Amy S" %}
+    	{% elsif forloop.index == 2 %}
+          {% assign reviewimage = 'real_people_real_reviews_2.png' %}
+          {% assign reviewheading = "Amazing Hair Growth!" %}
+          {% assign reviewcontent = "These hair growth vitamins sure did shock me! I’m so glad that I had the opportunity to try them. I mean the vitamins speak for themselves! Don’t knock it til you try it! 10/10…highly recommend!" %}
+          {% assign reviewname = "Amarachi" %}
+    	{% elsif forloop.index == 3 %}
           {% assign reviewimage = 'real_people_real_reviews_9.png' %}
-          {% assign reviewheading = "I'M SO HAPPY I GAVE THESE A TRY!" %}
+          {% assign reviewheading = "Love!" %}
           {% assign reviewcontent = "I was losing hair by the handfuls and I especially noticed how thin my hair had gotten after I had my 3rd baby..so I decided to give these a try and I am so happy that I did!" %}
           {% assign reviewname = "Ashly" %}
-    	{% elsif forloop.index == 2 %}
-          {% assign reviewimage = 'real_people_real_reviews_8.png' %}
-          {% assign reviewheading = "MY HAIR IS GROWING LIKE A WEED!" %}
-          {% assign reviewcontent = "I have had a great experience with St. Tropica! My hair is growing like a weed! My hair is twisted & I experienced so much growth just in the 1st month alone! I had no side effects that some others experienced, so I’m grateful for that! Give it a try….u have nothing to lose!!" %}
-          {% assign reviewname = "Robert M" %}
-    	{% elsif forloop.index == 3 %}
-          {% assign reviewimage = 'real_people_real_reviews_12.png' %}
-          {% assign reviewheading = "Impressed!" %}
-          {% assign reviewcontent = "My hairdresser recommended these vitamins because I was losing a lot of hair at the time. She said it worked on her so I decided to try it even though I was a little skeptical. After the first couple of weeks, I noticed my hair wasn't falling out as much and my nails were long and strong. I noticed a lot of baby hairs growing out and fast! I didn't think my hair had grown any longer but when I saw my before and after pictures I was very impressed! I'm not sure how much longer it grew in terms of inches, but it for sure grew longer! I'm very excited to recommend these pills to everyone I know!" %}
-          {% assign reviewname = "Deysi M" %}
     	{% elsif forloop.index == 4 %}
           {% assign reviewimage = 'real_people_real_reviews_3.png' %}
           {% assign reviewheading = "Amazing!" %}
           {% assign reviewcontent = "My aunt told me about St. Tropica I cannot believe the results! In just 2 months my hair is longer and thicker and even curlier! I've used a couple of other hair vitamins in the past but this is the winner! So thrilled to have found St. Tropica!! I will continue to use this! Thank you!" %}
           {% assign reviewname = "Melissa G" %}
     	{% elsif forloop.index == 5 %}
-          {% assign reviewimage = 'real_people_real_reviews_11.png' %}
-          {% assign reviewheading = "longer and thicker!" %}
-          {% assign reviewcontent = "I loved these vitamins , my hair grew longer and thicker!" %}
-          {% assign reviewname = "Angelina R" %}
+          {% assign reviewimage = 'real_people_real_reviews_5.png' %}
+          {% assign reviewheading = "Seriously amazed" %}
+          {% assign reviewcontent = "I'm genuinely amazed by how well and how quickly this product worked!! My hair not only grew but is also STRONGER! I even had very minimal shedding when washing my hair. I absolutely recommend it!" %}
+          {% assign reviewname = "Latoya M" %}
     	{% elsif forloop.index == 6 %}
           {% assign reviewimage = 'real_people_real_reviews_6.png' %}
           {% assign reviewheading = "The best hair vitamins" %}
@@ -38,20 +38,19 @@
     	{% elsif forloop.index == 7 %}
           {% assign reviewimage = 'real_people_real_reviews_7.png' %}
           {% assign reviewheading = "Wow.. it works." %}
-          {% assign reviewcontent = "Wow.. it works. I took 2 months St Tropica hair vitamins. My perm got losen, but hair grown a lot and fuller" %}
-          {% assign reviewname = "Chris" %}
+          {% assign reviewcontent = "I took 2 months St Tropica hair vitamins. My perm got losen, but hair grown a lot and fuller." %}
+          {% assign reviewname = "Chris Y" %}
     	{% else %}
-          {% assign reviewimage = 'real_people_real_reviews_2.png' %}
-          {% assign reviewheading = "Amazing Hair Growth!" %}
-          {% assign reviewcontent = "These hair growth vitamins sure did shock me! I’m so glad that I had the opportunity to try them. I mean the vitamins speak for themselves! Don’t knock it til you try it! 10/10…highly recommend!" %}
-          {% assign reviewname = "Amarachi" %}
+          {% assign reviewimage = 'real_people_real_reviews_8.png' %}
+          {% assign reviewheading = "MY HAIR IS GROWING LIKE A WEED!" %}
+          {% assign reviewcontent = "I have had a great experience with St. Tropica! My hair is growing like a weed! My hair is twisted & I experienced so much growth just in the 1st month alone! I had no side effects that some others experienced, so I’m grateful for that! Give it a try….u have nothing to lose!!" %}
+          {% assign reviewname = "Robert M" %}
     	{% endif %}
     
         <div class="carousel-cell col-md-4 col-12 px-md-2">
-          <img src="{{ reviewimage | asset_img_url: '10x' }}" data-src="{{ reviewimage | asset_url }}"  width="320" height="274" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ reviewimage | asset_url }}"  width="320" height="274" alt="ST.Tropica" class="lazyloaded transition--blur-up hvrbox-layer_bottom img-fluid-h">
           <div class="hvrbox-layer_top hvrbox-layer_slideup text-center hm-rw">
             <div class="hvrbox-text">
-              <p class="mb-0 p-0 caps" data-selectable="true"><b>{{ reviewheading }}</b></p>
               <div id="summary">
                 <p class="more collapse" id="collapseSummary500">{{ reviewcontent }}</p>
               </div>
@@ -61,7 +60,7 @@
           </div>
           <!--Review popup-->
           <div class="review-popup" id="reviews{{reviewCount}}">
-            <img src="{{ reviewimage | asset_img_url: '10x' }}" data-src="{{ reviewimage | asset_url }}"  width="320" height="274" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h mb-3">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src="{{ reviewimage | asset_url }}"  width="320" height="274" alt="ST.Tropica" class="lazyloaded transition--blur-up hvrbox-layer_bottom img-fluid-h mb-3">
             <p class="mb-0 mt-3 p-0 caps" data-selectable="true"><b>{{ reviewheading }}</b></p>
             <div class="fc-star">
               <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>

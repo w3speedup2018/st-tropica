@@ -101,23 +101,18 @@ enable_product_lightbox: <boolean>
 
               <div class="image__container" style="max-width: {{ media.width }}px">
                 <img id="{{ media.id }}"
-                class="lazyload lazyload--fade-in"
+                class="lazyloaded"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad"
+                data-src="{{ media | img_url: '1024x' }}"
+                data-mob-src="{{ media | img_url: '480x' }}"  
                 alt="{{ media.alt | escape }}"
                 data-zoom-src="{{ image_5000x }}"
                 data-image-id="{{ product.media[forloop.index0].id }}"
                 data-index="{{ forloop.index0 }}"
                 data-sizes="auto"
-                data-src="{{ image_1200x }}"
-                data-srcset=" {{ image_200x }} 200w,
-                              {{ image_400x }} 400w,
-                              {{ image_600x }} 600w,
-                              {{ image_800x }} 800w,
-                              {{ image_1200x }} 1200w,
-                              {{ image_2000x }} 2000w"
                 data-aspectratio="{{ media.width }}/{{ media.height }}"
                 height="{{ media.height }}"
                 width="{{ media.width }}"
-                srcset="data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='{{ media.width }}'%20height='{{ media.height }}'></svg>"
                 >
               </div>
 
@@ -133,11 +128,11 @@ enable_product_lightbox: <boolean>
             {% endif %}
           {% when 'external_video' %}
             <div class="product-gallery__video" data-youtube-video>
-              {{ media | external_video_tag }}
+              {{ media | external_video_tag | replace: 'preload="metadata"', 'preload="none"'}}
             </div>
           {% when 'video' %}
-            <div class="product-gallery__video" data-html5-video>
-              {{ media | video_tag: image_size: '300x300', controls: true }}
+            <div class="product-gallery__video" data-youtube-video>	
+              {{ media | video_tag: image_size: '300x300', controls: true | replace: 'preload="metadata"', 'preload="none"'}}
             </div>
           {% when 'model' %}
             <div class="product-gallery__model is-relative">
@@ -179,7 +174,8 @@ enable_product_lightbox: <boolean>
 
           <div class="product-gallery__thumbnail one-fifth column is-relative"
                 data-title="{{ media.alt | escape }}" tabindex="0">
-            <img alt="" src="{{ media | img_url: '300x' }}"/>
+            <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ media | img_url: '100x' }}" data-class="LazyLoad"/>
+            
             {% if thumbnail_badge != blank %}
               {% render 'icon',
                       name: thumbnail_badge,

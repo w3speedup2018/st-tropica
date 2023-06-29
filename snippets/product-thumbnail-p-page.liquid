@@ -252,7 +252,7 @@ display: none !important;
                   {{ product.media[1] | video_tag: controls: false }}
                 </div>
               {% else %}
-                {% render 'image-element',
+                {% render 'image-element2',
                         image: product.media[1],
                         alt: alt_text,
                         object_fit: align_height,

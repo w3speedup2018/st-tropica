@@ -80,7 +80,7 @@
         </div>
 
         <div class="col-md-3 px-md-2">
-          <a href="/products/st-tropica-dream-team"><img src="{{ 'perfect_pairing.png' | asset_img_url: '10x' }}" data-src="{{ 'perfect_pairing.png' | asset_url }}" class="lazyload blur-up img-fluid img-fluid-h center sticky-top" alt="ST.Tropica perfect pairing"/></a>
+          <a href="/products/st-tropica-dream-team"><img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'perfect_pairing.png' | asset_url }}" class="lazyloaded blur-up img-fluid img-fluid-h center sticky-top" alt="ST.Tropica perfect pairing"/></a>
         </div>
 
       </div>
@@ -1003,7 +1003,7 @@
 
 {% endschema %}
 
-<script>
+<script type="lazyload_int">
   document.addEventListener('DOMContentLoaded', function () {
     new Splide( '#shop-all-products', {
       perPage: 4,

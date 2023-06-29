@@ -109,7 +109,7 @@
         {% endif %}
         
         {% if section.settings.show__dire %}
-          <div class="tab-pane fade mt-5" id="pills-directions" role="tabpanel" aria-labelledby="pills-directions-tab">{{ section.settings.dire__cont }}</div>
+          <div class="tab-pane fade mt-5" id="pills-directions" role="tabpanel" aria-labelledby="pills-directions-tab">{{ section.settings.dire__cont | replace: 'src=','src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src='}}</div>
         {% endif %}
         {% if section.settings.show__ingr %}
         <div class="tab-pane fade" id="pills-ingredients" role="tabpanel" aria-labelledby="pills-ingredients-tab">
@@ -118,7 +118,7 @@
               <div class="row d-flex align-items-center m-0 lite-gr-bg">
                 <div class="col-md p-4 p-md-0 {{ section.settings.ingr__side }}">
                   <div class="px-md-5">
-                    <p>{{ section.settings.ingr__cont }}</p>
+                    <p>{{ section.settings.ingr__cont | replace: 'src=','src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad" data-src='}}</p>
                   </div>
                 </div>
                 <div class="col-md p-0 order-1">
@@ -434,14 +434,10 @@
   }
 {% endschema %}
 
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
+<script type="lazyload_int">
 
 $('#pills-tab li:first button').addClass('active');
 $('#pills-tabContent div:first').addClass('show');
 $('#pills-tabContent div:first').addClass('active');
 
-{% endjavascript %}
+</script>

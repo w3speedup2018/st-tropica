@@ -141,7 +141,12 @@
       {% endfor %}
       
         <div class="footer__credits pb-2 mx-0 text-center w-100 {% if section.settings.display_payment_methods %}two-thirds {% else %} one-whole {% endif %} column small-down--one-whole d-block d-md-none">
-                  <img src="{{ 'bbblogo1.png' | asset_img_url: '10x' }}" data-src="{{ 'bbblogo1.png' | asset_url }}" width=150px  class="lazyload transition--blur-up img-fluid pill-ingr img-full mb-3" alt="ST. TROPICA BBB Logo"/><br>
+                  <img 
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-class="LazyLoad"
+                    data-src="{{ 'bbblogo1.png' | asset_url }}"
+                    width=150px  class="lazyload transition--blur-up img-fluid pill-ingr img-full mb-3"
+                    alt="ST. TROPICA BBB Logo" />
+                  <br>
                   <p>&copy; {{ "now" | date: "%Y" }} {{ shop.name | link_to: '/' }}.</p>
                   {{ section.settings.copyright_text }}
                   {% if section.settings.display_designed_by %}

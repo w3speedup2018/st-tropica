@@ -1,0 +1,79 @@
+<div id="shopify-block-9094328589753815681" class="shopify-block shopify-app-block">
+<script type="application/javascript">
+    window.hextom_fsb_meta = {
+        p1: [
+            
+        ],
+        p2: {
+            
+        },
+        p3: [
+            
+        ]
+    };
+</script>
+</div>
+
+<div id="shopify-block-2131494470682214141" class="shopify-block shopify-app-block">
+<script type="lazyload_int">
+  var isCornerAppEmbedsTurnedOn = true;
+  window.elementToReplaceInCartPage = "main";
+  !(function (e, t) {
+    if ('object' == typeof exports && 'object' == typeof module) module.exports = t();
+    else if ('function' == typeof define && define.amd) define([], t);
+    else {
+      var r = t();
+      for (var o in r) ('object' == typeof exports ? exports : e)[o] = r[o];
+    }
+  })(self, function () {
+    return (() => {
+      'use strict';
+      var e, t;
+      return (
+        (e = document.createElement('script')),
+        (t = document.createElement('script')),
+        (e.type = 'text/javascript'),
+        (e.async = !0),
+        (e.src = 'https://all.usecorner.io/corner_node_vendors.js'),
+        (t.type = 'text/javascript'),
+        (t.async = !0),
+        (t.src = 'https://all.usecorner.io/cornerWidget.js'),
+        document.body.append(e, t),
+        {}
+      );
+    })();
+  });
+</script>
+<!-- BEGIN app snippet: corner-session -->
+<script type="lazyload_int">
+    var sessionBtn = {
+      get click_the_dots_to_view_session_data() {
+        console.clear();
+        console.log(
+          "%c ⚠️ Corner Session data ⚠️ ",
+          "font-size:18px; color: #ffc400; padding:4px; font-weight:bolder;"
+        );
+        console.log(window.corner.sessionData)
+      }
+    };
+    console.log("Corner Session Data Loaded", sessionBtn);
+
+    window.metafield = null
+    window.corner={};
+    window.corner.sessionData={};
+    window.corner.sessionData.shop = {
+      origin:'www.sttropica.com',
+      shopifyDomain:'st-tropica.myshopify.com',
+      cartCurrency: 'USD',
+      moneyFormat : '<span class=money>${{amount}}</span>',
+      currencyList: [{"name": "New Zealand Dollar", "iso_code": "NZD", "symbol": "$"},{"name": "Singapore Dollar", "iso_code": "SGD", "symbol": "$"},{"name": "United States Dollar", "iso_code": "USD", "symbol": "$"},]
+    };
+
+    window.corner.sessionData.cart = {
+      cartItems: [],
+      cartNote:''
+    };
+ 
+</script>
+<!-- END app snippet -->
+</div>

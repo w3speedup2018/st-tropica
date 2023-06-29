@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js no-touch" lang="{{ shop.locale }}">
 <head>
-
+  {% render 'wnw_header' %}
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -20,7 +20,7 @@
 }
 </script>
 
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org/",
   "@type": "WebSite",
@@ -34,20 +34,9 @@
 }
 </script>
   
-  {% style %}
-    @font-face {
-      font-family: 'oswalddemibold';
-      src: url({{ 'oswald-demibold-webfont.woff2' | asset_url }}) format('woff2'),
-           url({{ 'oswald-demibold-webfont.woff' | asset_url }}) format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-  {% endstyle %}
-  
   {% render 'stt-critical-css' %}
-    {% render 'faq' %}
+  {% render 'faq' %}
 
-  
   <meta charset="utf-8">
   <meta http-equiv="cleartype" content="on">
   <meta name="robots" content="index,follow">
@@ -56,21 +45,21 @@
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="google-site-verification" content="lv-s4LE0lSLfOdP5Vs7r6TIEvJAN4G_YwzY0kvDFWwg" />
   <!-- Clarity tracking code for https://www.sttropica.com/ -->
-<script>
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "d9n9tsr1wh");
-</script>
+  <script type="lazyload_int">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "d9n9tsr1wh");
+  </script>
 
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "d9n9tsr1wh");
-</script>
+  <script type="lazyload_int">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "d9n9tsr1wh");
+  </script>
   
   {%- if current_tags -%}{%- assign meta_tags = current_tags | join: ', ' -%}{%- endif -%}
   <title>{%- if template.name == "index" -%}{{ page_title }}{%- else -%}{{ page_title }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{%- endif -%}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}{% endif %}{% unless page_title contains shop.name %} - {{ shop.name }}{% endunless %}{% endif %}</title>
@@ -94,34 +83,6 @@
   {% if settings.enable_shopify_review_comments %}
     <link rel="preconnect" href="https://productreviews.shopifycdn.com">
   {% endif %}
-
-  <!-- Preloads -->
-  <!-- Preload CSS -->
-  <link rel="preload" href="{{ 'fancybox.css' | asset_url }}" as="style">
-  <link rel="preload" href="{{ 'styles.css' | asset_url }}" as="style">
-  <link rel="preload" href="{{ 'custom.css' | asset_url }}" as="style">
-  <link rel="preload" href="{{ 'bootstrap.min.css' | asset_url }}" as="style">
-  <link rel="preload" href="{{ 'bootstrap-icons.min.css' | asset_url }}" as="style">
-  
-  <!-- Preload JS -->
-  <link rel="preload" href="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
-  <link rel="preload" href="{{ 'vendors.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'utilities.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'app.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'video.min.js' | asset_url }}" as="script">
-  <link rel="preload" href="{{ 'bootstrap.bundle.min.js' | asset_url }}" as="script">
-  
-  <link rel="preload" href="{{ 'Oswald-DemiBold.eot' | asset_url }}" as="font" type="font/eot" crossorigin>
-  <link rel="preload" href="{{ 'Oswald-DemiBold.ttf' | asset_url }}" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="{{ 'Oswald-DemiBold.woff' | asset_url }}" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="{{ 'Oswald-DemiBold.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ 'Oswald-DemiBold.svg' | asset_url }}" as="font" type="font/svg" crossorigin>
-  <link rel="preload" href="{{ 'ITCAvantGardeStd-BkCn.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ 'feltthat-webfont.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ 'gilroy-heavy-webfont.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ 'gilroy-regular-webfont.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ 'gilroy-semibold-webfont.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ 'gilroy-bold-webfont.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>  
   
   {% if settings.enable_shipping_calculator and template.name == 'cart' %}
     <link rel="preload" href="{{ 'shopify_common.js' | shopify_asset_url }}" as="script">
@@ -143,8 +104,9 @@
   <link rel="stylesheet" href="{{ 'fancybox.css' | asset_url }}">
   <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
   <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
-  <link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}">
-  <link rel="stylesheet" href="{{ 'bootstrap-icons.min.css' | asset_url }}">
+  <link rel="stylesheet" data-href="{{ 'bootstrap.min.css' | asset_url }}">
+  <link rel="stylesheet" data-href="{{ 'bootstrap-icons.min.css' | asset_url }}">
+  {% render 'theme-css' %}
 
   {% comment %}Inject theme-object begin{% endcomment %}
   <script>
@@ -158,16 +120,16 @@
     {% render 'js-variables' %}
   </script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
-  <script src="{{ 'vendors.js' | asset_url }}" defer></script>
-  <script src="{{ 'utilities.js' | asset_url }}" defer></script>
-  <script src="{{ 'app.js' | asset_url }}" defer></script>
-  <script src="{{ 'video.min.js' | asset_url }}" defer></script>
-  <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}" defer></script>
+  <script type="lazyload_int" data-src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="lazyload_int" data-src="{{ 'vendors.js' | asset_url }}"></script>
+  <script type="lazyload_int" data-src="{{ 'utilities.js' | asset_url }}"></script>
+  <script type="lazyload_int" data-src="{{ 'app.js' | asset_url }}"></script>
+  <script type="lazyload_int" data-src="{{ 'video.min.js' | asset_url }}"></script>
+  <script type="lazyload_int" data-src="{{ 'bootstrap.bundle.min.js' | asset_url }}"></script>
 
   {%- if settings.show_multiple_currencies or shop.enabled_currencies.size > 1 -%}
-    <script type="text/javascript" de src="/services/javascripts/currencies.js"></script>
-    <script src="{{ 'currencyConversion.js' | asset_url }}" defer></script>
+    <script type="lazyload_int" data-src="/services/javascripts/currencies.js"></script>
+    <script type="lazyload_int" data-src="{{ 'currencyConversion.js' | asset_url }}"></script>
   {%- endif -%}  
 
   {%- if settings.enable_shipping_calculator and template.name == "cart" -%}
@@ -222,9 +184,15 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.png' | asset_url }}">
   {%- endif -%}
   
-  <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"137001910"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+  <script type="lazyload_int">(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"137001910"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
 
-  {{ content_for_header }}
+  {%- if request.design_mode or template contains 'cart' or template contains 'checkout' -%}
+          {{ content_for_header }}
+  {%- else -%}
+          {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
+          {{ content_for_header2 | replace: ' defer="defer" ', ' type="lazyload_int" ' | replace: " src=", " data-src="| replace: "DOMContentLoaded", "w3-DOMContentLoaded" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('w3-DOMContentLoaded', asyncLoad, false);" | replace: "addEventListener('load', prefetchAssets);", "addEventListener('w3-DOMContentLoaded', prefetchAssets);" }}
+          <script>var trekkie=[];trekkie.integrations=!0;window.BOOMR={},window.BOOMR.version=true;</script>
+  {%- endif -%}
 
   {%- render 'bold-common' -%}
   {% render 'social-meta-info' %}
@@ -237,15 +205,16 @@
   {% endif %}
   
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <script type="lazyload_int">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-N2F59L3');</script>
   <!-- End Google Tag Manager -->
   
-  <script src="https://www.dwin1.com/43629.js" type="text/javascript" defer="defer"></script>
-  
+  <script type="lazyload_int" data-src="https://www.dwin1.com/43629.js"></script>
+  {%- render 'custom-css' -%}
+  {%- render 'app-block' -%}
 </head>
 
 {%- capture money_format_output -%}
@@ -264,7 +233,7 @@
     {%- endif -%}
     {% if settings.header_layout == 'vertical' -%}
       has-vertical-header
-    {%- endif -%}
+    {%- endif -%} {{ template.name }}
   "
   data-money-format="{{ money_format_output }}"
   data-shop-url="{{ shop.url }}"
@@ -407,7 +376,7 @@
   {% render 'mobile-search' %}
   
   {% render 'structured-data' %}
-  <script>
+  <script type="lazyload_int">
     (function(d){
       var s = d.createElement("script");
       /* uncomment the following line to override default position*/
@@ -435,8 +404,8 @@
     <a href="https://userway.org">website accessibility</a>
   </noscript>
   
-  <script async src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="a686bba2-fbba-41d2-9049-758e92a48714-test"></script>
-  <script async type="text/javascript">function OptanonWrapper() { }</script>
+  <script type="lazyload_int" data-src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="a686bba2-fbba-41d2-9049-758e92a48714-test"></script>
+  <script type="lazyload_int">function OptanonWrapper() { }</script>
 
   <!-- **BEGIN** Hextom FSB Integration // Main Include - DO NOT MODIFY -->
   {% render 'hextom_fsb_main', product: product, customer: customer %}
@@ -445,14 +414,39 @@
   <!-- Stamped - DO NOT DELETE -->
   <script>function myInit(){ StampedFn.init({ apiKey: 'pubkey-5nZhX3Iu4983B52S85265817sbjJgq', sId: '21243' }); }
   </script>
-  <script async onload="myInit()" type="text/javascript" src="https://cdn1.stamped.io/files/widget.min.js"></script>
-  <script> function addEventListenerStamped(el, eventName, handler) { if (el.addEventListener) { el.addEventListener(eventName, handler); } else { el.attachEvent('on' + eventName, function () { handler.call(el); }); } } addEventListenerStamped(document, 'stamped:reviews:loaded', function(e) { console.log(e); $('.stamped-review').each(function(){ var totalPhotos = $('.stamped-review-image > a', this).length; $(this).attr('data-total-photos', totalPhotos); }); $('.stamped-review-header .review-location').each(function () { if ($(this).find('.stamped-location-flag').length < 1) { $(this).empty().append( '<span class="stamped-location-flag"><img class="stamped-lazyload stamped-lazyload-loaded" src="https://cdn.stamped.io/cdn/flags/us.svg" data-src="https://cdn.stamped.io/cdn/flags/us.svg" width="15" height="13" alt="United States" onerror="this.style.display=&quot;none&quot;;" data-was-processed="true"></span> <span data-location="United States">United States</span>' ); } }); }); $('.stamped-review-header .review-location').each(function () { if ($(this).find('.stamped-location-flag').length < 1) { $(this).empty().append( '<span class="stamped-location-flag"><img class="stamped-lazyload stamped-lazyload-loaded" src="https://cdn.stamped.io/cdn/flags/us.svg" data-src="https://cdn.stamped.io/cdn/flags/us.svg" width="15" height="13" alt="United States" onerror="this.style.display=&quot;none&quot;;" data-was-processed="true"></span> <span data-location="United States">United States</span>' ); } }); </script>
+  <script onload="myInit()" type="lazyload_int" data-src="https://cdn1.stamped.io/files/widget.min.js"></script>
+  <script type="lazyload_int"> function addEventListenerStamped(el, eventName, handler) { if (el.addEventListener) { el.addEventListener(eventName, handler); } else { el.attachEvent('on' + eventName, function () { handler.call(el); }); } } addEventListenerStamped(document, 'stamped:reviews:loaded', function(e) { console.log(e); $('.stamped-review').each(function(){ var totalPhotos = $('.stamped-review-image > a', this).length; $(this).attr('data-total-photos', totalPhotos); }); $('.stamped-review-header .review-location').each(function () { if ($(this).find('.stamped-location-flag').length < 1) { $(this).empty().append( '<span class="stamped-location-flag"><img class="stamped-lazyload stamped-lazyload-loaded" src="https://cdn.stamped.io/cdn/flags/us.svg" data-src="https://cdn.stamped.io/cdn/flags/us.svg" width="15" height="13" alt="United States" onerror="this.style.display=&quot;none&quot;;" data-was-processed="true"></span> <span data-location="United States">United States</span>' ); } }); }); $('.stamped-review-header .review-location').each(function () { if ($(this).find('.stamped-location-flag').length < 1) { $(this).empty().append( '<span class="stamped-location-flag"><img class="stamped-lazyload stamped-lazyload-loaded" src="https://cdn.stamped.io/cdn/flags/us.svg" data-src="https://cdn.stamped.io/cdn/flags/us.svg" width="15" height="13" alt="United States" onerror="this.style.display=&quot;none&quot;;" data-was-processed="true"></span> <span data-location="United States">United States</span>' ); } }); </script>
   <style> 
     [data-verified-label] { display: none !important; } 
     .author:after { content: 'Verified Buyer'; display: inline-block; font-weight: 400; color: #fff!important; background: #ff9ac6; border-radius: 10px; padding: 0 8px 1px 5px; font-size: 10px; float: right; } 
     span.stamped-keyword-highlight { background: none !important; }
   </style>
   <!-- End Stamped --> 
+
+  <script>
+      	var site_nav_link_burger = true;
+      	document.addEventListener("DOMContentLoaded", function() {
+            var clickmenu = document.querySelector(".mobile-menu__toggle-button");
+            clickmenu.addEventListener("click", function() {
+                console.log("first");
+      			if(site_nav_link_burger) {
+      				event.preventDefault();
+      				site_nav_link_burger = false;
+      			}
+      		});
+      	});
+    </script>
   
+{% if canonical_url contains "/pages/directions" %}
+<style>
+@media(max-width:767px){
+.mt-5 {
+    margin-top: 5rem!important;
+}}
+</style>
+{% endif %}
+
+  {% render 'wnw_footer' %}
+  {%- render 'footer-app-block' -%}
   </body>
 </html>
