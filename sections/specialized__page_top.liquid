@@ -1,0 +1,294 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+    {% if section.settings.width == 'wide' -%}
+      width: 100%;
+    {%- elsif section.settings.width == 'half' -%}
+      width: 50%;
+    {%- endif %}
+  }
+  {% render 'css-loop',
+          css: section.settings.custom_css,
+          id: section.id
+  %}
+{% endstyle %}
+
+<section class="section {{ section.settings.css_class }}
+                is-width-{{ section.settings.width }}
+                {% if background_alpha != 0 or gradient_alpha != 0  %}
+                has-background
+                {% endif %}
+                "
+         data-section-id="{{ section.id }}"
+         {% if section.settings.animation != "none" %}
+         data-scroll-class="{{ section.settings.animation }}"
+         {% endif %}>
+  {% if section.settings.show__spe__review %}
+  <div class="container pe-md-0">
+    <div class="row m-0">
+      <div class="col-md-8 lite-gr-bg d-flex align-items-center px-md-5 {{ section.settings.review__side }}">
+        <div class="px-3 px-md-4 py-4">
+          <h1 class="title">{{ section.settings.specialized__title }}</h1>
+          {{ section.settings.specialized__top_content }}
+          {% if template contains 'stt-thyroid' %} <a href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply?ref=KINDKETOMAMA" class="button mx-auto mt-3">Shop Now</a>{% endif %}
+        </div>
+      </div>
+      <div class="col-md-4 order-1">
+
+        {% if template contains 'stt-thyroid' %} 
+          <div class="row m-0">
+            <div class="video-wrapper px-0 pe-xl-3">
+              <div class="video-container" id="video-container">
+                <video id="truvideo" src="https://cdn.shopify.com/videos/c/o/v/5e977a4c786f4f11a59a355988b3df2a.mp4" playsinline controls preload="auto" class="px-0 video-js vjs-16-9" poster="{{ '100daymoneyback.png' | asset_url }}" data-setup="{}">
+                  <source src="https://cdn.shopify.com/videos/c/o/v/5e977a4c786f4f11a59a355988b3df2a.mp4" type="video/mp4" />
+                  <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a
+                    web browser that supports HTML5 video
+                  </p>
+                </video>
+              </div>
+            </div>
+          </div>
+        {% else %}
+        <div class="carousel-cell">
+          <img src="{{section.settings.specialized__review_img | img_url : 'large' }}" data-src="{{section.settings.specialized__review_img | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h">
+          <div class="hvrbox-layer_top hvrbox-layer_slideup text-center">
+            <div class="hvrbox-text">
+              <p class="mb-0 mt-3 p-0 caps"><b>{{ section.settings.specialized__review_title }}</b></p>
+              <div class="fc-star">
+                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              </div>
+              <div id="summary">
+                <p class="more collapse">{{ section.settings.specialized__review_content }}</p>
+              </div>
+              <span class="home-vitamin-review-span stt-pink-text">- {{ section.settings.specialized__review_name }}</span>
+              <a data-fancybox data-options='{"src": "#specialized__review"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+            </div>
+          </div>
+          <div class="review-popup text-center" id="specialized__review">
+            <img src="{{section.settings.specialized__review_img | img_url : 'large' }}" data-src="{{section.settings.specialized__review_img | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h mb-3">
+            <p class="mb-0 mt-3 p-0 caps" data-selectable="true"><b>{{ section.settings.specialized__review_title }}</b></p>
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <p data-selectable="true">{{ section.settings.specialized__review_content }}</p>
+            <span class="home-vitamin-review-span stt-pink-text float-none" data-selectable="true">- {{ section.settings.specialized__review_name }}</span>
+          </div>
+        </div>
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="container pe-md-0">
+    <div class="row m-0">
+      <div class="col-md-12 lite-gr-bg d-flex align-items-center px-md-5 {{ section.settings.review__side }}">
+        <div class="px-3 px-md-4 py-4">
+          <h1 class="title">{{ section.settings.specialized__title }}</h1>
+          {{ section.settings.specialized__top_content }}
+          {% if template contains 'stt-thyroid' %} <a href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply?ref=KINDKETOMAMA" class="button mx-auto mt-3">Shop Now</a>{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</section>
+
+{% schema %}
+  {
+    "name": "Specialized Top Section",
+    "class": "specialized",
+    "settings": [
+      {
+        "type": "text",
+        "id": "specialized__title",
+        "label": "Specialized Title"
+      },
+	  {
+        "type": "richtext",
+        "id": "specialized__top_content",
+        "label": "Specialized Top Content"
+      },
+	  {
+        "type": "checkbox",
+        "id": "show__spe__review",
+        "label": "Show Review",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "specialized__review_title",
+        "label": "Specialized Review Title"
+      },
+      {
+        "type": "text",
+        "id": "specialized__review_name",
+        "label": "Specialized Review Name"
+      },
+	  {
+        "type": "image_picker",
+        "id": "specialized__review_img",
+        "label": "Specialized Review Image"
+      },
+	  {
+        "type": "textarea",
+        "id": "specialized__review_content",
+        "label": "Specialized Review Content"
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "standard",
+        "options": [
+          {
+            "value": "half",
+            "label": "Half"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Left spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Right spacing",
+        "default": 0,
+        "min": 0,
+        "max": 80,
+        "unit": "px"
+      },
+      {
+        "type": "select",
+        "id": "review__side",
+        "label": "Review Side",
+        "default": "order-0",
+        "options": [
+          {
+            "value": "order-0",
+            "label": "Right"
+          },
+          {
+            "value": "order-2",
+            "label": "Left"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "animation",
+        "label": "Animation",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "fadeIn",
+            "label": "Fade in"
+          },
+          {
+            "value": "fadeInDown",
+            "label": "Fade in down"
+          },
+          {
+            "value": "fadeInLeft",
+            "label": "Fade in left"
+          },
+          {
+            "value": "fadeInRight",
+            "label": "Fade in right"
+          },
+          {
+            "value": "slideInLeft",
+            "label": "Slide in left"
+          },
+          {
+            "value": "slideInRight",
+            "label": "Slide in right"
+          },
+          {
+            "value": "zoomIn",
+            "label": "Zoom in"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Advanced"
+      },
+      {
+        "type": "paragraph",
+        "content": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+      },
+      {
+        "type": "text",
+        "id": "css_class",
+        "label": "CSS Class"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Specialized Top Section",
+        "category": "Layout",
+        "settings": {
+
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

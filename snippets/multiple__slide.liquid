@@ -1,0 +1,20 @@
+{% assign reviewCount1 = reviewCount1 | plus:1 %}
+{% assign reviewCount1a = reviewCount1a | plus:1 %}
+
+<div class="carousel-cell col-md-{{ section.settings.slide_count }} col-12 px-md-2">
+  <img src="{{block.settings.slide_img | img_url : 'large' }}" data-src="{{block.settings.slide_img | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h">
+  <div class="hvrbox-layer_top hvrbox-layer_slideup text-center pt-3">
+    <div class="hvrbox-text">
+      <p class="mb-0 p-0 caps"><b>{{ block.settings.title }}</b></p>
+      <div id="summary">
+        <p class="more collapse" id="collapseSummary500">{{block.settings.slide_content}}</p>
+      </div>
+      <a data-fancybox data-options='{"src": "#review_slide{{reviewCount1}}"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+    </div>
+  </div>
+  <div class="review-popup text-center" id="review_slide{{reviewCount1a}}">
+    <img src="{{block.settings.slide_img | img_url : 'large' }}" data-src="{{block.settings.slide_img | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h mb-3">
+    <p class="mb-0 p-0 caps" data-selectable="true"><b>{{ block.settings.title }}</b></p>
+    <p data-selectable="true">{{block.settings.slide_content}}</p>
+  </div>
+</div>

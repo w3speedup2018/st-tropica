@@ -1,0 +1,182 @@
+<h1 class="page-title pt-4 pb-3 fb-h1">Facebook Reviews from Real Customers!</h1>
+<div class="d-none d-md-block text-center">
+  <img alt="ST.Tropica Wave" class="wave-pink-z img-fluid p-0" src="{{ 'ingredients_page_wave_pink.png' | asset_url }}"/>
+</div>
+<div class="d-block d-md-none text-center mt-n2">
+  <img alt="ST.Tropica Wave" class="wave-pink-z img-fluid p-0" src="{{ 'ingredients_page_wave_m_pink.png' | asset_url }}"/>
+</div>
+
+<h2 class="center mt-3">Join our Facebook Community at <a href="https://www.facebook.com/groups/hairjourneycollective">Hair Journey Collective!</a></h2>
+
+<div class="masonry">
+  {% for block in section.blocks%}
+  <div class="item moreBox" style="display: none;">
+    {% case block.type %}
+      {% when 'fb-review' %}
+      {% include 'Facebook Review' %}
+    {% endcase %}
+  </div>
+  {% endfor %}
+</div>
+
+<center><button id="loadMore">Load More</button></center>
+
+<script>
+$( document ).ready(function () {
+  $(".moreBox").slice(0, 20).show();
+    if ($(".item:hidden").length != 0) {
+      $("#loadMore").show();
+    }   
+    $("#loadMore").on('click', function (e) {
+      e.preventDefault();
+      $(".moreBox:hidden").slice(0, 20).slideDown();
+      if ($(".moreBox:hidden").length == 0) {
+        $("#loadMore").fadeOut('slow');
+      }
+    });
+  });
+</script>
+
+
+{% schema %}
+{
+"blocks": [
+{
+"type": "fb-review",
+"name": "FB Review",
+"settings": [
+{
+"id": "fb_review_img",
+"type": "image_picker",
+"label": "Avatar"
+},
+{
+"id": "title",
+"type": "text",
+"label": "Name"
+},
+{
+"type": "richtext",
+"id": "fb_review_content",
+"label": "Review",
+"default": "<p>Review Here</p>"
+},
+{
+"type":      "select",
+"id":        "fb_img_id",
+"label":     "Enable Review Image",
+"options": [
+{
+"value": "Yes",
+"label": "Yes"
+},
+{
+"value": "No",
+"label": "No"
+}
+],
+"default":   "No"
+},
+{
+"id": "fb_review_feature_img",
+"type": "image_picker",
+"label": "Review Image"
+},
+{
+"type":      "select",
+"id":        "fb_react_id",
+"label":     "Enable FB React",
+"options": [
+{
+"value": "Yes",
+"label": "Yes"
+},
+{
+"value": "No",
+"label": "No"
+}
+],
+"default":   "Yes"
+},
+{
+"type": "text",
+"id": "fb_react_count",
+"label": "React Count",
+"default": "1"
+},
+{
+"type":      "select",
+"id":        "fb_emoji_id",
+"label":     "Emoji Count",
+"options": [
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+}
+],
+"default":   "1"
+},
+{
+"type":      "select",
+"id":        "fb_emoji_1",
+"label":     "Emoji 1",
+"options": [
+{
+"value": "//cdn.shopify.com/s/files/1/0818/8965/files/1.png",
+"label": "Love"
+},
+{
+"value": "//cdn.shopify.com/s/files/1/0818/8965/files/2.png",
+"label": "Like"
+},
+{
+"value": "//cdn.shopify.com/s/files/1/0818/8965/files/3.png",
+"label": "Laugh"
+},
+{
+"value": "//cdn.shopify.com/s/files/1/0818/8965/files/4.png",
+"label": "WOW"
+}
+],
+"default":   "//cdn.shopify.com/s/files/1/0818/8965/files/1.png"
+},
+{
+"type":      "select",
+"id":        "fb_emoji_2",
+"label":     "Emoji 2",
+"options": [
+{
+"value": "//cdn.shopify.com/s/files/1/0818/8965/files/1.png",
+"label": "Love"
+},
+{
+"value": "//cdn.shopify.com/s/files/1/0818/8965/files/2.png",
+"label": "Like"
+},
+{
+"value": "//cdn.shopify.com/s/files/1/0818/8965/files/3.png",
+"label": "Laugh"
+},
+{
+"value": "//cdn.shopify.com/s/files/1/0818/8965/files/4.png",
+"label": "WOW"
+}
+],
+"default":   "//cdn.shopify.com/s/files/1/0818/8965/files/1.png"
+},
+{
+"type": "text",
+"id": "fb_review_date",
+"label": "Review Date",
+"default": "28m"
+}
+
+]
+}
+]
+}
+{% endschema %}

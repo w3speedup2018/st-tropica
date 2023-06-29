@@ -1,0 +1,283 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+    {% if section.settings.width == 'wide' -%}
+      width: 100%;
+    {%- elsif section.settings.width == 'half' -%}
+      width: 50%;
+    {%- endif %}
+  }
+  .specialized__what_icon{
+	height: 110px;
+  }
+  .title {
+    font-size: 2.15em;
+  }
+  {% render 'css-loop',
+          css: section.settings.custom_css,
+          id: section.id
+  %}
+{% endstyle %}
+
+<section class="section {{ section.settings.css_class }}
+                is-width-{{ section.settings.width }}
+                {% if background_alpha != 0 or gradient_alpha != 0  %}
+                has-background
+                {% endif %}
+                "
+         data-section-id="{{ section.id }}"
+         {% if section.settings.animation != "none" %}
+         data-scroll-class="{{ section.settings.animation }}"
+         {% endif %}>
+  <div class="container">
+    <div class="row m-0">
+      <div class="col-md-5 stt-pink-bg d-flex flex-wrap justify-content-center align-items-center align-content-center px-md-5 py-3">
+        <img src="{{section.settings.specialized__what_icon1 | img_url : 'large' }}" data-src="{{section.settings.specialized__what_icon1 | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom specialized__what_icon">
+        <h1 class="title text-white text-center">{{ section.settings.specialized__what_title }}</h1>
+      </div>
+      <div class="col-md-7 p-4 p-md-5 lite-gr-bg d-flex flex-wrap align-items-center">
+        {{ section.settings.specialized__what_content }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if section.settings.show__sym %}
+<section id="shopify-section-{{ section.id }}" class="section {{ section.settings.css_class }}
+                is-width-{{ section.settings.width }}
+                {% if background_alpha != 0 or gradient_alpha != 0  %}
+                has-background
+                {% endif %}
+                "
+         data-section-id="{{ section.id }}"
+         {% if section.settings.animation != "none" %}
+         data-scroll-class="{{ section.settings.animation }}"
+         {% endif %}>
+  <div class="container">
+    <div class="row m-0">
+      <div class="col-md-7 p-4 p-md-5 lite-gr-bg d-flex flex-wrap align-items-center order-md-0 order-1">
+        {{ section.settings.specialized__sym_content }}
+      </div>      
+      <div class="col-md-5 stt-pink-bg d-flex flex-wrap justify-content-center align-items-center align-content-center px-md-5 py-3 order-md-1 order-0">
+        <img src="{{section.settings.specialized__what_icon2 | img_url : 'large' }}" data-src="{{section.settings.specialized__what_icon2 | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom specialized__what_icon">
+        <h1 class="title text-white text-center">{{ section.settings.specialized__sym_title }}</h1>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section id="shopify-section-{{ section.id }}" class="section {{ section.settings.css_class }}
+                is-width-{{ section.settings.width }}
+                {% if background_alpha != 0 or gradient_alpha != 0  %}
+                has-background
+                {% endif %}
+                "
+         data-section-id="{{ section.id }}"
+         {% if section.settings.animation != "none" %}
+         data-scroll-class="{{ section.settings.animation }}"
+         {% endif %}>
+  <div class="container">
+    <div class="row m-0 px-2 px-md-0">
+      <h1 class="title text-center">{{ section.settings.specialized__how_title }}</h1>
+      <div class="col-md-7 p-4 p-md-5 lite-gr-bg">
+        {{ section.settings.specialized__how_content }}
+      </div>
+      <div class="col-md-5 px-0 d-flex align-items-center">
+        <img src="{{ 'special_trubloom.png' | asset_url }}" data-src="{{ 'special_trubloom.png' | asset_url }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Specialized What is",
+    "class": "specialized",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "specialized__what_icon1",
+        "label": "Icon"
+      },
+      {
+        "type": "text",
+        "id": "specialized__what_title",
+        "label": "What is Title"
+      },
+	  {
+        "type": "richtext",
+        "id": "specialized__what_content",
+        "label": "What is Content"
+      },
+	  {
+        "type": "checkbox",
+        "id": "show__sym",
+        "label": "Show Symptoms",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "specialized__what_icon2",
+        "label": "Icon"
+      },
+      {
+        "type": "text",
+        "id": "specialized__sym_title",
+        "label": "Symptoms Title"
+      },
+	  {
+        "type": "html",
+        "id": "specialized__sym_content",
+        "label": "Symptoms Content"
+      },
+      {
+        "type": "text",
+        "id": "specialized__how_title",
+        "label": "How Title"
+      },
+	  {
+        "type": "richtext",
+        "id": "specialized__how_content",
+        "label": "How Content"
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "standard",
+        "options": [
+          {
+            "value": "half",
+            "label": "Half"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Left spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Right spacing",
+        "default": 0,
+        "min": 0,
+        "max": 80,
+        "unit": "px"
+      },
+      {
+        "type": "select",
+        "id": "animation",
+        "label": "Animation",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "fadeIn",
+            "label": "Fade in"
+          },
+          {
+            "value": "fadeInDown",
+            "label": "Fade in down"
+          },
+          {
+            "value": "fadeInLeft",
+            "label": "Fade in left"
+          },
+          {
+            "value": "fadeInRight",
+            "label": "Fade in right"
+          },
+          {
+            "value": "slideInLeft",
+            "label": "Slide in left"
+          },
+          {
+            "value": "slideInRight",
+            "label": "Slide in right"
+          },
+          {
+            "value": "zoomIn",
+            "label": "Zoom in"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Advanced"
+      },
+      {
+        "type": "paragraph",
+        "content": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+      },
+      {
+        "type": "text",
+        "id": "css_class",
+        "label": "CSS Class"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Specialized What is",
+        "category": "Layout",
+        "settings": {
+
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,134 @@
+{% assign ingredientCount = 1 %}
+{% assign ingredientCount1 = 1 %}
+
+    <div class="d-none d-md-block"  data-flickity='{ "asNavFor": ".ingredient-carousel", "contain": true, "pageDots": false, "prevNextButtons": false, "draggable": false, "resize": false, "cellAlign": "center" }'>
+
+      {% for i in (1..4) %}
+    
+    	{% if forloop.index == 1 %}
+          {% assign ingredientheading = "Amla" %}
+    	{% elsif forloop.index == 2 %}
+          {% assign ingredientheading = "Hibiscus" %}
+    	{% elsif forloop.index == 3 %}
+          {% assign ingredientheading = "Bamboo Extract" %}
+    	{% elsif forloop.index == 4 %}
+          {% assign ingredientheading = "Acai Berry" %}
+    	{% elsif forloop.index == 5 %}
+          {% assign ingredientheading = "Spinach Powder" %}
+    	{% else %}
+          {% assign ingredientheading = "Black Bean Powder" %}
+    	{% endif %}
+    
+        <div class="carousel-cell me-2">
+          <h5 class="card-title-button">{{ ingredientheading }}</h5>
+        </div>
+    
+      {% endfor %}
+      
+    </div>
+    
+    <div class="ingredient-carousel" data-flickity='{ "autoPlay": 9000 , "wrapAround": false, "contain": true, "groupCells": true, "pageDots": false, "cellAlign": "left", "imagesLoaded": true, "prevNextButtons": true, "arrowShape": "m4.46,41.59L43.22,2.83c3.78-3.78,9.91-3.78,13.7,0,3.78,3.78,3.78,9.91,0,13.7L23.53,49.91l33.55,33.55c3.78,3.78,3.78,9.91,0,13.7-1.89,1.89-4.37,2.83-6.85,2.83s-4.96-.95-6.85-2.84L4.46,58.23c-.58-.37-4.46-4.45-4.46-8.32s3.88-7.95,4.46-8.32Z"  }'>
+    
+    {% for i in (1..4) %}
+    
+    	{% if forloop.index == 1 %}
+          {% assign ingredientimage = "stt_amla_ingredient.png" %}
+          {% assign ingredientheading = "Amla" %}
+          {% assign ingredientcontent = "Also known as the Gooseberry, is famous in India/Asia and best known for its rich source of antioxidants & essential fatty acids which serve to keep the hair follicles strong, while adding a lustrous softness from root to tip." %}
+    	{% elsif forloop.index == 2 %}
+          {% assign ingredientimage = "stt_hibiscus_ingredient.png" %}
+          {% assign ingredientheading = "Hibiscus" %}
+          {% assign ingredientcontent = "Widely known to help restrict hair fall as a result of its unique genetic make-up of Vitamin C, Phosphorous, Riboflavin, Calcium & Carotene." %}
+        {% elsif forloop.index == 3 %}
+          {% assign ingredientimage = "stt_bamboo_ingredient.png" %}
+          {% assign ingredientheading = "Bamboo Extract" %}
+          {% assign ingredientcontent = "Silica content in the hair is known to fortify & increase hairs’ tensile strength, thus helping to prevent hair fall/hair thinning" %}
+    	{% elsif forloop.index == 4 %}
+          {% assign ingredientimage = "stt_acaiberry_ingredient.png" %}
+          {% assign ingredientheading = "Acai Berry" %}
+          {% assign ingredientcontent = 'Known as the "beauty berry" in Brazil. A healthy scalp is a prerequisite for healthy hair, optimum hair growth, and to avoid dreaded hair fall. And the prereq to a healthy scalp is having enough essential fatty acids, proteins, and vitamins in our system. Amazingly, Acai has all the bases covered.' %}
+    	{% elsif forloop.index == 5 %}
+          {% assign ingredientimage = "stt_spinach_ingredient.png" %}
+          {% assign ingredientheading = "Spinach Powder" %}
+          {% assign ingredientcontent = "Like so many dark green leafy vegetables, spinach is full of amazing nutrients. It has tons of vitamin A, plus iron, beta carotene, folate, and vitamin C. These work together for a healthy scalp and mane; keeping your hair moisturized so it doesn't break." %}
+    	{% else %}
+          {% assign ingredientimage = "stt_bean_ingredient.png" %}
+          {% assign ingredientheading = "Black Bean Powder" %}
+          {% assign ingredientcontent = "Black beans provide plenty of protein to promote hair growth as well as iron, zinc and biotin." %}
+    	{% endif %}
+    
+        <div class="carousel-cell col-md-12 col-12 px-md-2">
+          <div class="row px-0 mx-auto mb-0 d-flex align-items-center">
+            <div class="col-md-6 col-12 d-none d-md-flex align-items-center ps-md-5 ps-0">
+              <div class="card-body d-flex flex-column text-left ps-md-5 ps-0">
+                <h5 class="card-title text-pink">{{ ingredientheading }}</h5>
+                <div id="summary">
+                  <p class="more collapse card-text" id="collapseSummary500">{{ ingredientcontent }}</p>
+                </div>
+                <a data-fancybox data-options='{"src": "#ingredients{{ingredientCount1}}"}' href="javascript:;" class="stt-pink-text mt-2">- Read More</a>
+              </div>
+              <div class="review-popup" id="ingredients{{ ingredientCount1 }}">
+                <h5 class="card-title" data-selectable="true">{{ ingredientheading }}</h5>
+                <p data-selectable="true">{{ ingredientcontent }}</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-12 pe-md-5 pe-0">
+              <img src="{{ ingredientimage | asset_img_url: '10x' }}" data-src="{{ ingredientimage | asset_url }}"  width="320" height="274" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h pe-md-5 pe-0">
+            </div>
+          </div>
+          <div class="card d-flex d-md-none">
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title">{{ ingredientheading }}</h5>
+              <div id="summary">
+                <p class="more collapse card-text" id="collapseSummary500">{{ ingredientcontent }}</p>
+              </div>
+              <a data-fancybox data-options='{"src": "#ingredients{{ingredientCount}}"}' href="javascript:;" class="stt-pink-text mt-2">- Read More</a>
+            </div>
+            <div class="review-popup" id="ingredients{{ ingredientCount }}">
+              <h5 class="card-title" data-selectable="true">{{ ingredientheading }}</h5>
+              <p data-selectable="true">{{ ingredientcontent }}</p>
+            </div>
+          </div>
+        </div>
+    
+        {% assign ingredientCount = ingredientCount | plus:1 %}
+        {% assign ingredientCount1 = ingredientCount1 | plus:1 %}
+    
+    {% endfor %}
+    
+  </div>
+  
+  <style>
+    .text-pink {
+        color: #fe9bc5 !important;
+    }
+    .ingredient-carousel #summary > p.collapse:not(.show) {
+        height: 125px!important;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        font-size: 20px;
+    }
+    @media only screen and (min-width: 1080px){
+      .ingredient-carousel {
+          width: 75%;
+          margin: 2em auto 0em;
+      }
+    }
+    h5.card-title-button {
+        border-radius: 20px;
+        border: 2px solid #fe9bc5;
+        padding: 5px 20px;
+        color: #fe9bc5;
+        font-family: 'gilroyBold';
+        text-transform: uppercase;
+        cursor: pointer;
+        font-size: 1em;
+        letter-spacing: 0;
+    }
+    .is-nav-selected h5.card-title-button {
+        background: #fe9bc5;
+        color: #fff;
+    }
+  </style>

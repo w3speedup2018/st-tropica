@@ -1,0 +1,212 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+    {% if section.settings.width == 'wide' -%}
+      width: 100%;
+    {%- elsif section.settings.width == 'half' -%}
+      width: 50%;
+    {%- endif %}
+  }
+  {% render 'css-loop',
+          css: section.settings.custom_css,
+          id: section.id
+  %}
+.home-slide-content {
+    width: auto;
+}
+{% endstyle %}
+
+<section class="px-0 section {{ section.settings.css_class }}
+                is-width-{{ section.settings.width }}
+                {% if background_alpha != 0 or gradient_alpha != 0  %}
+                has-background
+                {% endif %}
+                "
+         data-section-id="{{ section.id }}"
+         {% if section.settings.animation != "none" %}
+         data-scroll-class="{{ section.settings.animation }}"
+         {% endif %}>
+  <div class="container">
+    <div class="row m-0">
+      <div class="col-md-7 col-12 special-head stt-pink-bg d-flex align-items-center">
+        <div class="home-slide-content text-center w-100 py-3 px-3 px-md-5">
+          <h1>Tru Bloom</h1>
+          <h2 class="text-white">{{ section.settings.spl_text }}</h2>
+        </div>
+      </div>
+      <div class="col-md-5 col-12 py-3 stt-pink-bg d-flex align-items-center">
+        <div class="home-slide-c py-2">
+          <div class="home-slide-content mx-auto">
+            <div class="home-slide-sub-content text-center">
+              <div class="home-slide-sub-content-in">
+                <h2 class="text-white">THE RESULTS</h2>
+                <p class="text-white mb-1">Longer Stronger Thicker Hair in 60 Days Flat<span style="font-size: 15px;vertical-align: top;">*</span></p>
+              </div>
+              <div class="home-slide-sub-content-in">
+                <h2 class="text-white">THE GUARANTEE</h2>
+                <p class="text-white mb-1">100 DAY Money Back Guarantee</p>
+              </div>
+              <div class="home-slide-sub-content-in">
+                <h2 class="text-white">THE REVIEWS</h2>
+                <p class="text-white mb-1">Over 5,000 Stellar, Genuine Reviews</p>
+              </div>
+              <p class="disclaimer mt-2 text-white mb-0" style="font-size: 10px !important;">*Or your money back. Results may vary by individual</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Specialized Top Header",
+    "class": "specialized",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "textarea",
+        "id": "spl_text",
+        "label": "Header Text",
+		"default": "Widely regarded as the Best hair vitamins ever made"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "standard",
+        "options": [
+          {
+            "value": "half",
+            "label": "Half"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Left spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Right spacing",
+        "default": 0,
+        "min": 0,
+        "max": 80,
+        "unit": "px"
+      },
+      {
+        "type": "select",
+        "id": "animation",
+        "label": "Animation",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "fadeIn",
+            "label": "Fade in"
+          },
+          {
+            "value": "fadeInDown",
+            "label": "Fade in down"
+          },
+          {
+            "value": "fadeInLeft",
+            "label": "Fade in left"
+          },
+          {
+            "value": "fadeInRight",
+            "label": "Fade in right"
+          },
+          {
+            "value": "slideInLeft",
+            "label": "Slide in left"
+          },
+          {
+            "value": "slideInRight",
+            "label": "Slide in right"
+          },
+          {
+            "value": "zoomIn",
+            "label": "Zoom in"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Advanced"
+      },
+      {
+        "type": "paragraph",
+        "content": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+      },
+      {
+        "type": "text",
+        "id": "css_class",
+        "label": "CSS Class"
+      },
+      {
+        "type": "liquid",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Specialized Top Header",
+        "category": "Layout",
+        "settings": {
+
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

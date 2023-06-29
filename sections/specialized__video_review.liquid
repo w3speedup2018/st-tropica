@@ -1,0 +1,288 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+    {% if section.settings.width == 'wide' -%}
+      width: 100%;
+    {%- elsif section.settings.width == 'half' -%}
+      width: 50%;
+    {%- endif %}
+  }
+  .specialized__what_icon{
+	height: 110px;
+  }
+  .title {
+    font-size: 2.15em;
+  }
+  {% render 'css-loop',
+          css: section.settings.custom_css,
+          id: section.id
+  %}
+{% endstyle %}
+
+<section class="section {{ section.settings.css_class }}
+                is-width-{{ section.settings.width }}
+                {% if background_alpha != 0 or gradient_alpha != 0  %}
+                has-background
+                {% endif %}
+                "
+         data-section-id="{{ section.id }}"
+         {% if section.settings.animation != "none" %}
+         data-scroll-class="{{ section.settings.animation }}"
+         {% endif %}>
+  <div class="container d-none d-md-block">
+    <div class="row m-0">
+      <div class="col-md-2 px-0 d-flex flex-wrap justify-content-center align-items-center align-content-center">
+        <div class="video-wrapper">
+          <div class="video-container" id="video-container">
+            <video id="truvideo" class="px-0 video-js vjs-9-16" controls preload="none" poster="{{ 'meg_k_180_day_review_video.png' | asset_url }}" data-setup='{ "fluid" : true }'>
+              <source src="https://sttropica.net/chemotherapy1.mp4" type="video/mp4" />
+              <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that supports HTML5 video
+              </p>
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 p-4 lite-gr-bg d-flex flex-wrap align-items-center">
+        <div class="row m-0 align-items-center">
+          <h1 class="title text-center mb-3">{{ section.settings.specialized__180_review_title }}</h1>
+          <div class="col-md-6 px-4 text-center">
+            {{ section.settings.specialized__180_review_content }}
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <span class="stt-pink-text" data-uw-styling-context="true">- Meg K</span><br>
+            <a class="button mx-auto mt-1" style="width: auto; padding: 15px 25px;" href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply?ref=ylhR9ufvDKJVe" aria-label="Click here to Shop now">SHOP NOW</a>
+          </div>
+          <div class="col-md-6">
+            <img src="{{section.settings.specialized__180_review | img_url : 'large' }}" data-src="{{section.settings.specialized__180_review | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container d-block d-md-none">
+    <div class="row m-0">
+      <h1 class="title text-center" style="font-size: 1.7em;">{{ section.settings.specialized__180_review_title }}</h1>
+      <div class="col-md-2 px-0">
+        <div class="video-wrapper">
+          <div class="video-container" id="video-container">
+            <video id="truvideo" class="px-0 video-js vjs-9-16" controls preload="none" poster="{{ 'meg_k_180_day_review_video.png' | asset_url }}" data-setup="{}">
+              <source src="https://sttropica.net/chemotherapy1.mp4" type="video/mp4" />
+              <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that supports HTML5 video
+              </p>
+            </video>
+            <div class="play-button-wrapper">
+              <div title="Play video" class="play-gif" id="circle-play-b">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                  <path d="M40 0a40 40 0 1040 40A40 40 0 0040 0zM26 61.56V18.44L64 40z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 lite-gr-bg">
+        <div class="row">
+          <div class="col-md-6 px-4 pt-3 text-center">
+            {{ section.settings.specialized__180_review_content }}
+            <div class="fc-star mt-3">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <span class="stt-pink-text" data-uw-styling-context="true">- Meg K</span>
+          </div>
+          <div class="col-md-6 mt-4">
+            <img src="{{section.settings.specialized__180_review | img_url : 'large' }}" data-src="{{section.settings.specialized__180_review | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom">
+          </div>
+          <a class="button mx-auto mt-3" style="width: auto; padding: 15px 25px;" href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply?ref=ylhR9ufvDKJVe" aria-label="Click here to Shop now">SHOP NOW</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+{% schema %}
+  {
+    "name": "Specialized Video Review",
+    "class": "specialized_video_review",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "specialized__180_review",
+        "label": "180 Review image"
+      },
+      {
+        "type": "text",
+        "id": "specialized__180_review_title",
+        "label": "180 Review Title"
+      },
+	  {
+        "type": "richtext",
+        "id": "specialized__180_review_content",
+        "label": "180 Review Content"
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "standard",
+        "options": [
+          {
+            "value": "half",
+            "label": "Half"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Left spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Right spacing",
+        "default": 0,
+        "min": 0,
+        "max": 80,
+        "unit": "px"
+      },
+      {
+        "type": "select",
+        "id": "animation",
+        "label": "Animation",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "fadeIn",
+            "label": "Fade in"
+          },
+          {
+            "value": "fadeInDown",
+            "label": "Fade in down"
+          },
+          {
+            "value": "fadeInLeft",
+            "label": "Fade in left"
+          },
+          {
+            "value": "fadeInRight",
+            "label": "Fade in right"
+          },
+          {
+            "value": "slideInLeft",
+            "label": "Slide in left"
+          },
+          {
+            "value": "slideInRight",
+            "label": "Slide in right"
+          },
+          {
+            "value": "zoomIn",
+            "label": "Zoom in"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Advanced"
+      },
+      {
+        "type": "paragraph",
+        "content": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+      },
+      {
+        "type": "text",
+        "id": "css_class",
+        "label": "CSS Class"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Specialized Video Review",
+        "category": "Layout",
+        "settings": {
+
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+<script>
+  const video = document.getElementById("truvideo");
+  const circlePlayButton = document.getElementById("circle-play-b");
+
+  function togglePlay() {
+    if (video.paused || video.ended) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }
+
+  circlePlayButton.addEventListener("click", togglePlay);
+  video.addEventListener("playing", function () {
+    circlePlayButton.style.opacity = 0;
+  });
+  video.addEventListener("pause", function () {
+    circlePlayButton.style.opacity = 1;
+  });
+</script>

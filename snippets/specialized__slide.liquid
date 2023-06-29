@@ -1,0 +1,120 @@
+{% assign reviewCount1 = reviewCount1 | plus:1 %}
+{% assign reviewCount1a = reviewCount1a | plus:1 %}
+{% assign reviewCount2 = reviewCount2 | plus:1 %}
+{% assign reviewCount2a = reviewCount2a | plus:1 %}
+{% assign reviewCount3 = reviewCount3 | plus:1 %}
+{% assign reviewCount3a = reviewCount3a | plus:1 %}
+{% assign reviewCount4 = reviewCount4 | plus:1 %}
+{% assign reviewCount4a = reviewCount4a | plus:1 %}
+
+{% if block.settings.review__Count1 == "true" %}
+<div class="carousel-cell col-md-3 col-12 px-md-2">
+  <img src="{{block.settings.ch_review_img | img_url : 'large' }}" data-src="{{block.settings.ch_review_img | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h">
+  <div class="hvrbox-layer_top hvrbox-layer_slideup text-center pt-3">
+    <div class="hvrbox-text">
+      <p class="mb-0 p-0 caps"><b>{{ block.settings.title }}</b></p>
+      <div class="fc-star">
+        <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+      </div>
+      <div id="summary">
+        <p class="more collapse" id="collapseSummary500">{{block.settings.ch_review_content}}</p>
+      </div>
+      <span class="home-vitamin-review-span stt-pink-text">- {{block.settings.heading}}</span>
+      <a data-fancybox data-options='{"src": "#review_slide{{reviewCount1}}"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+    </div>
+  </div>
+  <div class="review-popup text-center" id="review_slide{{reviewCount1a}}">
+    <img src="{{block.settings.ch_review_img | img_url : 'large' }}" data-src="{{block.settings.ch_review_img | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h mb-3">
+    <p class="mb-0 p-0 caps" data-selectable="true"><b>{{ block.settings.title }}</b></p>
+    <div class="fc-star">
+      <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+    </div>
+    <p data-selectable="true">{{block.settings.ch_review_content}}</p>
+    <span class="home-vitamin-review-span stt-pink-text float-none" data-selectable="true">- {{block.settings.heading}}</span>
+  </div>
+</div>
+{% endif %}
+
+{% if block.settings.review__Count2 == "true" %}
+<div class="carousel-cell col-md-3 col-12 px-md-2">
+  <img src="{{block.settings.ch_review_img2 | img_url : 'large' }}" data-src="{{block.settings.ch_review_img2 | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h">
+  <div class="hvrbox-layer_top hvrbox-layer_slideup text-center pt-3">
+    <div class="hvrbox-text">
+      <p class="mb-0 p-0 caps"><b>{{ block.settings.title2 }}</b></p>
+      <div class="fc-star">
+        <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+      </div>
+      <div id="summary">
+        <p class="more collapse" id="collapseSummary500">{{block.settings.ch_review_content2}}</p>
+      </div>
+      <span class="home-vitamin-review-span stt-pink-text">- {{block.settings.heading2}}</span>
+      <a data-fancybox data-options='{"src": "#review_slide_a{{reviewCount2}}"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+    </div>
+  </div>
+  <div class="review-popup text-center" id="review_slide_a{{reviewCount2a}}">
+    <img src="{{block.settings.ch_review_img2 | img_url : 'large' }}" data-src="{{block.settings.ch_review_img2 | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h mb-3">
+    <p class="mb-0 p-0 caps" data-selectable="true"><b>{{ block.settings.title2 }}</b></p>
+    <div class="fc-star">
+      <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+    </div>
+    <p data-selectable="true">{{block.settings.ch_review_content2}}</p>
+    <span class="home-vitamin-review-span stt-pink-text float-none" data-selectable="true">- {{block.settings.heading2}}</span>
+  </div>
+</div>
+{% endif %}
+
+{% if block.settings.review__Count3 == "true" %}
+<div class="carousel-cell col-md-3 col-12 px-md-2">
+  <img src="{{block.settings.ch_review_img3 | img_url : 'large' }}" data-src="{{block.settings.ch_review_img3 | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h">
+  <div class="hvrbox-layer_top hvrbox-layer_slideup text-center pt-3">
+    <div class="hvrbox-text">
+      <p class="mb-0 p-0 caps"><b>{{ block.settings.title3 }}</b></p>
+      <div class="fc-star">
+        <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+      </div>
+      <div id="summary">
+        <p class="more collapse" id="collapseSummary500">{{block.settings.ch_review_content3}}</p>
+      </div>
+      <span class="home-vitamin-review-span stt-pink-text">- {{block.settings.heading3}}</span>
+      <a data-fancybox data-options='{"src": "#review_slide_b{{reviewCount3}}"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+    </div>
+  </div>
+  <div class="review-popup text-center" id="review_slide_b{{reviewCount3a}}">
+    <img src="{{block.settings.ch_review_img3 | img_url : 'large' }}" data-src="{{block.settings.ch_review_img3 | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h mb-3">
+    <p class="mb-0 p-0 caps" data-selectable="true"><b>{{ block.settings.title3 }}</b></p>
+    <div class="fc-star">
+      <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+    </div>
+    <p data-selectable="true">{{block.settings.ch_review_content3}}</p>
+    <span class="home-vitamin-review-span stt-pink-text float-none" data-selectable="true">- {{block.settings.heading3}}</span>
+  </div>
+</div>
+{% endif %}
+
+{% if block.settings.review__Count4 == "true" %}
+<div class="carousel-cell col-md-3 col-12 px-md-2">
+  <img src="{{block.settings.ch_review_img4 | img_url : 'large' }}" data-src="{{block.settings.ch_review_img4 | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h">
+  <div class="hvrbox-layer_top hvrbox-layer_slideup text-center pt-3">
+    <div class="hvrbox-text">
+      <p class="mb-0 p-0 caps"><b>{{ block.settings.title4 }}</b></p>
+      <div class="fc-star">
+        <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+      </div>
+      <div id="summary">
+        <p class="more collapse" id="collapseSummary500">{{block.settings.ch_review_content4}}</p>
+      </div>
+      <span class="home-vitamin-review-span stt-pink-text">- {{block.settings.heading4}}</span>
+      <a data-fancybox data-options='{"src": "#review_slide_c{{reviewCount4}}"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+    </div>
+  </div>
+  <div class="review-popup text-center" id="review_slide_c{{reviewCount4a}}">
+    <img src="{{block.settings.ch_review_img4 | img_url : 'large' }}" data-src="{{block.settings.ch_review_img4 | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h mb-3">
+    <p class="mb-0 p-0 caps" data-selectable="true"><b>{{ block.settings.title4 }}</b></p>
+    <div class="fc-star">
+      <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+    </div>
+    <p data-selectable="true">{{block.settings.ch_review_content4}}</p>
+    <span class="home-vitamin-review-span stt-pink-text float-none" data-selectable="true">- {{block.settings.heading4}}</span>
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,311 @@
+{% comment %}
+** Custom HTML **
+{% endcomment %}
+
+{%- assign html_content = section.settings.html_content -%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+    {% if section.settings.width == 'wide' -%}
+      width: 100%;
+    {%- elsif section.settings.width == 'half' -%}
+      width: 50%;
+    {%- endif %}
+  }
+  {% render 'css-loop',
+          css: section.settings.custom_css,
+          id: section.id
+  %}
+{% endstyle %}
+
+<section class="section {{ section.settings.css_class }}
+                is-width-{{ section.settings.width }}
+                {% if background_alpha != 0 or gradient_alpha != 0  %}
+                has-background
+                {% endif %}
+                "
+         data-section-id="{{ section.id }}"
+         {% if section.settings.animation != "none" %}
+         data-scroll-class="{{ section.settings.animation }}"
+         {% endif %}>
+  
+  <div class="home-desktop-slide d-none d-xl-block" data-flickity='{ "autoPlay": 9000, "wrapAround": false, "contain": true, "adaptiveHeight": false, "groupCells": true, "pageDots": true, "cellAlign": "left", "imagesLoaded": true, "prevNextButtons": true, "arrowShape": "m4.46,41.59L43.22,2.83c3.78-3.78,9.91-3.78,13.7,0,3.78,3.78,3.78,9.91,0,13.7L23.53,49.91l33.55,33.55c3.78,3.78,3.78,9.91,0,13.7-1.89,1.89-4.37,2.83-6.85,2.83s-4.96-.95-6.85-2.84L4.46,58.23c-.58-.37-4.46-4.45-4.46-8.32s3.88-7.95,4.46-8.32Z"  }'>
+    
+    
+    <div class="carousel-cell container-fluid px-0">
+      <a href="{{section.settings.main_image_url}}">{% render 'image-element',
+                    image: section.settings.main_image_desktop,
+                    alt: alt_text,
+                    object_fit: align_height,
+                    max_height: height
+        %}</a>
+    </div>
+    
+    {% comment %}<div class="carousel-cell container-fluid px-0 stt-pink-bg">
+      <div class="row p-0 m-0">
+        <div class="col-xl-7 px-0">
+          <img src="{{ 'Best_tru_bloom.png' | asset_img_url: '10x' }}" data-src="{{ 'Best_tru_bloom.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+         </div>
+          <div class="col-xl-5">
+            <div class="home-slide-c">
+              <div class="home-slide-content position-absolute top-50 start-50 translate-middle">
+                <h1>Tru Bloom</h1>
+                <h2 class="mb-3">Widely Regarded As the Best<br>Hair Vitamins For Hair Growth</h2>
+                <div class="home-slide-sub-content">
+                  <div class="home-slide-sub-content-in">
+                    <h2>THE RESULTS</h2>
+                    <p>Longer Stronger Thicker Hair in 60 Days Flat<span style="font-size: 15px;vertical-align: top;">*</span></p>
+                  </div>
+                  <div class="home-slide-sub-content-in">
+                    <h2>THE GUARANTEE</h2>
+                    <p>100 DAY Money Back Guarantee</p>
+                  </div>
+                  <div class="home-slide-sub-content-in">
+                    <h2>THE REVIEWS</h2>
+                    <p>Over 5,000 Stellar, Genuine Reviews</p>
+                  </div>
+                </div>
+                <a class="button btn-white mt-2 mt-xl-0 pink-bg-btn" href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply" alt="Click here to see full details" aria-label="Click here to see full details"><b>SHOP NOW</b></a>
+                <p class="disclaimer mt-2">*Or your money back. Results may vary by individual.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>{% endcomment %}
+    
+      <div class="carousel-cell container-fluid px-0">
+        <a href="{{section.settings.image_url}}">{% render 'image-element',
+                      image: section.settings.image_desktop,
+                      alt: alt_text,
+                      object_fit: align_height,
+                      max_height: height
+          %}</a>
+      </div>
+    
+    </div>
+  
+    <div class="home-mobile-slide d-block d-xl-none" data-flickity='{ "autoPlay": false, "wrapAround": false, "contain": true, "adaptiveHeight": true, "groupCells": true, "pageDots": true, "cellAlign": "left", "imagesLoaded": true, "prevNextButtons": true, "arrowShape": "M30.8 100 0 49.7 30.8 0l3.4 2.1L4.7 49.7l29.5 48.2z"  }'>
+      
+      <div class="carousel-cell col-12">
+        <a href="{{section.settings.main_image_url}}">{% render 'image-element',
+                    image: section.settings.main_image_mobile,
+                    alt: alt_text,
+                    object_fit: align_height,
+                    max_height: height
+          %}</a>
+      </div>
+      
+      {% comment %}<div class="carousel-cell col-12 stt-pink-bg">
+        <div class="image-element__wrap" style="background: none; max-width: 800px;">
+          <img src="{{ 'Best_tru_bloom_m.png' | asset_img_url: '10x' }}" data-src="{{ 'Best_tru_bloom_m.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+        </div>
+        <div class="home-slide-content text-center mt-2 px-4">
+          <h1>Tru Bloom</h1>
+          <h2 class="mb-3 pb-3">Widely regarded as the Best<br>Hair Vitamins For Hair Growth</h2>
+          <div class="home-slide-sub-content">
+            <div class="home-slide-sub-content-in">
+              <h2>THE RESULTS</h2>
+              <p>Longer Stronger Thicker Hair in 60 Days Flat<span style="font-size: 15px;vertical-align: top;">*</span></p>
+            </div>
+            <div class="home-slide-sub-content-in">
+              <h2>THE GUARANTEE</h2>
+              <p>100 DAY Money Back Guarantee</p>
+            </div>
+            <div class="home-slide-sub-content-in">
+              <h2>THE REVIEWS</h2>
+              <p>Over 5,000 Stellar, Genuine Reviews</p>
+            </div>
+          </div>
+          <a class="button btn-white mt-2 mt-xl-0 pink-bg-btn" href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply" alt="Click here to see full details" aria-label="Click here to see full details"><b>SHOP NOW</b></a>
+          <p class="disclaimer mt-1 pb-3" style="font-size: 10px !important;">*Or your money back. Results may vary by individual</p>
+        </div>
+      </div>{% endcomment %}
+      
+      <div class="carousel-cell col-12">
+        <a href="{{section.settings.image_url}}">{% render 'image-element',
+                    image: section.settings.image_mobile,
+                    alt: alt_text,
+                    object_fit: align_height,
+                    max_height: height
+          %}</a>
+      </div>
+      
+    </div>
+    
+</section>
+
+{% schema %}
+  {
+    "name": "STT Slider",
+    "class": "stt-slider",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "html_content",
+        "label": "HTML",
+        "default": "<div class='container is-flex is-justify-center'><h2 class='title'>Your own custom HTML</h2></div>"
+      },
+	  {
+        "type": "url",
+        "id": "main_image_url",
+        "label": "Main Image URL"
+      },
+	  {
+        "type": "image_picker",
+        "id": "main_image_desktop",
+        "label": "Main Image desktop"
+      },
+	  {
+        "type": "image_picker",
+        "id": "main_image_mobile",
+        "label": "Main Image mobile"
+      },
+	  {
+        "type": "url",
+        "id": "image_url",
+        "label": "Image URL"
+      },
+	  {
+        "type": "image_picker",
+        "id": "image_desktop",
+        "label": "Image desktop"
+      },
+	  {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Image mobile"
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "standard",
+        "options": [
+          {
+            "value": "half",
+            "label": "Half"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Left spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Right spacing",
+        "default": 0,
+        "min": 0,
+        "max": 80,
+        "unit": "px"
+      },
+      {
+        "type": "select",
+        "id": "animation",
+        "label": "Animation",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "fadeIn",
+            "label": "Fade in"
+          },
+          {
+            "value": "fadeInDown",
+            "label": "Fade in down"
+          },
+          {
+            "value": "fadeInLeft",
+            "label": "Fade in left"
+          },
+          {
+            "value": "fadeInRight",
+            "label": "Fade in right"
+          },
+          {
+            "value": "slideInLeft",
+            "label": "Slide in left"
+          },
+          {
+            "value": "slideInRight",
+            "label": "Slide in right"
+          },
+          {
+            "value": "zoomIn",
+            "label": "Zoom in"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Advanced"
+      },
+      {
+        "type": "paragraph",
+        "content": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+      },
+      {
+        "type": "text",
+        "id": "css_class",
+        "label": "CSS Class"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "presets": [
+      {
+        "name": "STT Slider",
+        "category": "Layout",
+        "settings": {
+
+        }
+      }
+    ]
+  }
+{% endschema %}

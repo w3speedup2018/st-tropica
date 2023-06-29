@@ -1,0 +1,28 @@
+
+<div class="page clearfix">
+
+  <div class="container fb-container mb-4 pt-0 mt-5">
+
+    {% section 'facebook-review-content' %}
+    
+    <div class="container">
+      <div class="row pt-5 d-flex justify-content-around">
+        <div class="col-md-2 d-flex align-items-center justify-content-end">
+          <img src="{{ 'hair_vitamins_featured_icons-01.png' | asset_img_url: '10x' }}" data-src="{{ 'hair_vitamins_featured_icons-01.png' | asset_url }}" style="width: 5.5em;" class="lazyload blur-up img-fluid" alt="ST.Tropica Hair Vitamins"/>
+        </div>
+        <div class="col-md-8 d-flex align-items-center justify-content-around">
+          {% for product in collections.all.products %}
+          {% if product.id == 1948309946471 %}
+          {% include 'product-featured', sidebar: sidebar %}
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>  
+    </div>
+
+  </div>
+
+  {{ page.content }}
+</div>
+
+

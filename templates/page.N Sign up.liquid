@@ -1,0 +1,45 @@
+
+<div class="page clearfix">
+  <h1 class="title text-center pb-0 mt-5 mb-0">Join St. Tropica's Friends List</h1><br />
+  <p class="text-center"><strong>Sign up now for exclusive updates, special discount codes and more!</strong></p>
+  <section id="directions">
+    <div class="container">
+      <div class="row px-4 justify-content-md-center">
+        <div class="col-md-6 text-center">
+          <!-- FORM GOES HERE -->
+
+          {% form 'customer' %}
+          {% if form.posted_successfully? %}
+          <script type="text/javascript">
+            $(document).ready(function() {
+              $.fancybox.close();
+              $("#nlty").fancybox().trigger('click');
+            });
+          </script>
+          <script type="text/javascript">
+            $(document).ready(function() {
+              $(".news-hide").hide();
+            });
+          </script>
+          <p class="center"><em>{{ 'general.newsletter_form.success_text' | t }}</em></p>
+          {% elsif form.errors %}
+          {% for field in form.errors %}
+          <p><em>{{ field }} - {{ form.errors.messages[field] }}</em></p>
+          {% endfor %}
+          {% endif %}
+
+          <input type="hidden" name="contact[tags]" value="prospect,newsletter"/>
+          <input type="text" class="contact_name col-12 news-hide mb-3" name="contact[first_name]" placeholder="Name" />
+          <input type="email" class="contact_email col-12 news-hide mb-3" name="contact[email]" required pattern="[^ @]*@[^ @]*" placeholder="{{ 'general.newsletter_form.placeholder' | t }}" />
+          <input type='submit' class="button saveForm n-sign-up news-hide mb-3" value="Join Us!" />
+          {% endform %}
+
+          <!-- POPUP ENDS HERE -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ page.content }}
+</div>
+

@@ -1,0 +1,682 @@
+{% comment %}
+** Custom HTML **
+{% endcomment %}
+
+{%- assign html_content = section.settings.html_content -%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+    {% if section.settings.width == 'wide' -%}
+      width: 100%;
+    {%- elsif section.settings.width == 'half' -%}
+      width: 50%;
+    {%- endif %}
+  }
+  {% render 'css-loop',
+          css: section.settings.custom_css,
+          id: section.id
+  %}
+.stt_featured {
+    height: 26px;
+}
+{% endstyle %}
+
+  <section class="product-home my-1 mb-xl-4 px-xl-4 splide mt-5" id="best-sellers" aria-label="Product Slider">
+    <div itemtype="http://schema.org/ItemList">
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.92 100">
+            <path d="m4.46,41.59L43.22,2.83c3.78-3.78,9.91-3.78,13.7,0,3.78,3.78,3.78,9.91,0,13.7L23.53,49.91l33.55,33.55c3.78,3.78,3.78,9.91,0,13.7-1.89,1.89-4.37,2.83-6.85,2.83s-4.96-.95-6.85-2.84L4.46,58.23c-.58-.37-4.46-4.45-4.46-8.32s3.88-7.95,4.46-8.32Z"/>
+          </svg>
+        </button>
+        <button class="splide__arrow splide__arrow--next">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.92 100">
+            <path d="m4.46,41.59L43.22,2.83c3.78-3.78,9.91-3.78,13.7,0,3.78,3.78,3.78,9.91,0,13.7L23.53,49.91l33.55,33.55c3.78,3.78,3.78,9.91,0,13.7-1.89,1.89-4.37,2.83-6.85,2.83s-4.96-.95-6.85-2.84L4.46,58.23c-.58-.37-4.46-4.45-4.46-8.32s3.88-7.95,4.46-8.32Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="splide__track">
+		<ul class="splide__list">
+          {% for product in collections.st-tropica-best-sellers.products limit: 10 %}
+          <li class="splide__slide px-2">
+            {% render 'product-thumbnail-slide', product: product %}
+          </li>
+          {% endfor %}
+          <li class="splide__slide px-2">
+            <a href="/collections/st-tropica-collection">
+              <img src="{{ 'shop_all_banner.png' | asset_img_url: '10x' }}" data-src="{{ 'shop_all_banner.png' | asset_url }}" class="lazyload transition--blur-up img-fluid-h pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid px-xl-5 mt-0 pt-1 d-none d-xl-flex">
+    <div class="container-fluid px-xl-4 mm-b mb-xl-0 px-0">
+      <div class="px-xl-2">
+        <a href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply"><img src="{{ 'clinically_proven_hair_growth_vitamins.png' | asset_img_url: '10x' }}" data-src="{{ 'clinically_proven_hair_growth_vitamins.png' | asset_url }}" class="text-center lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/></a>
+      </div>
+    </div>
+  </section>
+              
+  {% comment %}<section class="container-fluid mt-0 px-0 pt-1 d-flex d-xl-none">
+    <a href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply"><img src="{{ 'clinically_proven_hair_growth_vitamins1.png' | asset_img_url: '10x' }}" data-src="{{ 'clinically_proven_hair_growth_vitamins1.png' | asset_url }}" class="text-center lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/></a>
+  </section>{% endcomment %}
+
+  <section class="container-fluid px-0 px-xl-5 mt-0 pt-1 d-flex d-xl-none">
+    <div class="container-fluid px-xl-4 mm-b mb-xl-0 px-0">
+      <div class="px-xl-2">
+        <div class="row d-flex align-items-stretch m-0 lite-gr-bg">
+          <div class="align-items-center flex-wrap col-xl-6 px-0 mb-4 mb-xl-0 d-flex">
+            <h2 class="f-h2-h mt-4 mx-auto text-center px-4">From our new (Gold standard) randomized, Double-blinded, Placebo Controlled Clinical study</h2>
+            <img src="{{ 'scientifically_proven_image_1.png' | asset_img_url: '10x' }}" data-src="{{ 'scientifically_proven_image_1.png' | asset_url }}" class="px-0 lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+            <p class="px-4 pt-4 pt-md-2 text-center"><b>ST. TROPICA CLINICAL STUDY - actual Subject showing significant Hair Growth from Baseline to Day 60.</b></p>
+          </div>    
+          <div class="d-flex align-items-center col-xl-6 pe-xl-0 ps-xl-4 py-xl-4 lite-gr-bg">
+            <div style="width: 100%;">
+              <div class="row mb-md-0">
+                <div class="col-md-5">
+                  <img src="{{ 'Trubloom_Hair_growth_vitamin1_m.png' | asset_img_url: '10x' }}" data-src="{{ 'Trubloom_Hair_growth_vitamin1_m.png' | asset_url }}" class="px-5 d-block d-md-none lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+                  <img src="{{ 'Trubloom_Hair_growth_vitamin1.png' | asset_img_url: '10x' }}" data-src="{{ 'Trubloom_Hair_growth_vitamin1.png' | asset_url }}" class="px-5 px-md-3 d-none d-md-block lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+                </div>
+                <div class="col-md-7 pe-md-4 d-flex flex-wrap align-content-center text-center text-xl-start">
+                  <p>Now PROVEN in a large Government Published Clinical Study - to grow Significantly Thicker, Fuller and Longer Hair, with Dramatically Reduced Hair Fall – all within just 60 Days, with even more results at 90 Days. It’s a Natural, 100% Drug-Free Solution for Hair Thinning and Hair Loss; with no side effects.</p>
+                </div>
+              </div>
+              <div>
+                <a class="button mx-auto" style="width: auto; padding: 15px 25px;" href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply" aria-label="Click here to Shop now">SHOP NOW</a>
+                <a class="button mx-auto" style="width: auto; padding: 15px 25px;" href="/pages/60-day-hair-challenge-reviews" aria-label="Click here to SEE MORE REVIEWS">SEE MORE REVIEWS</a>
+              </div>
+              </div>        
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="stt_special m-0 pt-4">
+      <div class="container-fluid mb-5 px-0">
+        <div class="row m-0 align-items-center">
+
+          <div class="col-md-5 px-0 py-1 py-md-0 text-center">
+            <img src="{{ 'home_trubloom_hairgrowth_vitamins_big.png' | asset_img_url: '10x' }}" style="width: 100%;" data-src="{{ 'home_trubloom_hairgrowth_vitamins_big.png' | asset_url }}" class="d-none d-md-flex lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+          </div>
+
+          <div class="col-md-7 px-0">
+            <div class="row mx-0 align-items-center">
+              <div class="col-md-4 px-0 py-1 py-md-0 text-center">
+                <img src="{{ 'home_clinically_proven_icon.png' | asset_img_url: '10x' }}" data-src="{{ 'home_clinically_proven_icon.png' | asset_url }}" class="px-2 lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+                <p class="mb-0 w-auto icon-home-spl mb-1" style="line-height: 1;"><b>CLINICALLY<br>PROVEN</b></p>
+                <p class="mb-0 w-auto px-5">Thicker, Fuller and Longer Hair, with Dramatically Reduced Hair Fall</p>
+              </div>
+              <div class="col-md-4 px-0 py-1 py-md-0 text-center">
+                <img src="{{ 'home_all_natural_icon.png' | asset_img_url: '10x' }}" data-src="{{ 'home_all_natural_icon.png' | asset_url }}" class="px-2 lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+                <p class="mb-0 w-auto icon-home-spl mb-1" style="line-height: 1;"><b>ALL<br>NATURAL</b></p>
+                <p class="mb-0 w-auto px-4">A Natural Hair Growth <br>Supplement, that's Drug-Free<br>with Zero Side Effects.</p>
+              </div>
+              <div class="col-md-3 px-0 py-1 py-md-0 text-center">
+                <img src="{{ 'home_moneyback_guarantee_icon.png' | asset_img_url: '10x' }}" data-src="{{ 'home_moneyback_guarantee_icon.png' | asset_url }}" class="px-2 lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+                <p class="mb-0 w-auto icon-home-spl mb-1" style="line-height: 1;"><b>MONEY BACK<br>GUARANTEE</b></p>
+                <p class="mb-0 w-auto px-4">100 Day Money Back<br>Guarantee<br><br></p>
+              </div>
+              <div class="col-md-1 px-0 py-1 py-md-0 text-center d-none d-md-flex">
+                <img src="{{ 'home_trubloom_hairgrowth_vitamins_leaf.png' | asset_img_url: '10x' }}" data-src="{{ 'home_trubloom_hairgrowth_vitamins_leaf.png' | asset_url }}" class="px-2 lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+              </div>
+            </div>
+          </div>
+
+          <img src="{{ 'home_trubloom_hairgrowth_vitamins_big1.png' | asset_img_url: '10x' }}" style="width: 100%;" data-src="{{ 'home_trubloom_hairgrowth_vitamins_big1.png' | asset_url }}" class="d-flex d-md-none px-0 lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+          
+        </div>
+      </div>
+  </section>
+
+  <section class="container-fluid px-0 px-xl-5 mt-0 pt-1">
+    <div class="container-fluid px-xl-4 mm-b mb-xl-0 px-0">
+      <div class="px-xl-2">
+        <div class="row d-flex align-items-stretch m-0 lite-gr-bg">
+
+          <div class="d-flex align-items-center col-xl-5 pe-xl-0 ps-xl-4 py-xl-3 lite-gr-bg order-xl-0 order-1">
+            <div style="width: 100%;">
+              <h2 class="f-h2-h my-2 text-center text-xl-start">OVER 5,000 GLOWING REVIEWS <br class="d-none d-md-block">& COUNTING</h2>
+              <div class="row px-0">
+                <div class="col-4">
+                  <img src="{{ 'stt90percent.png' | asset_img_url: '10x' }}" data-src="{{ 'stt90percent.png' | asset_url }}" style="max-width: 160px;" class="pe-5 mb-3 mt-2 lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+                  {% comment %}<h2 class="f-h2-h mb-0 mt-0" style="font-family: 'gilroybold'; font-size: 3.5em;">90%</h1>{% endcomment %}
+                  <p class="mb-0" style="line-height: 1.25; font-size: 0.9em;"><b>REPORTED SIGNIFICANTLY<br>LONGER HAIR<br>WITHIN 60 DAYS*</b></p>
+                </div>
+                <div class="col-4">
+                  <img src="{{ 'stt87percent.png' | asset_img_url: '10x' }}" data-src="{{ 'stt87percent.png' | asset_url }}" style="max-width: 160px;" class="pe-5 mb-3 mt-2 lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+                  {% comment %}<h2 class="f-h2-h mb-0 mt-0" style="font-family: 'gilroybold'; font-size: 3.5em;">87%</h1>{% endcomment %}
+                  <p class="mb-0" style="line-height: 1.25; font-size: 0.9em;"><b>REPORTED NOTICEABLY<br>THICKER HAIR<br>WITHIN 60 DAYS*</b></p>
+                </div>
+                <div class="col-4">
+                  <img src="{{ 'stt94percent.png' | asset_img_url: '10x' }}" data-src="{{ 'stt94percent.png' | asset_url }}" style="max-width: 160px;" class="pe-5 mb-3 mt-2 lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+                  {% comment %}<h2 class="f-h2-h mb-0 mt-0" style="font-family: 'gilroybold'; font-size: 3.5em;">94%</h1>{% endcomment %}
+                  <p class="mb-0" style="line-height: 1.25; font-size: 0.9em;"><b>REPORTED SIGNIFICANTLY<br>LESS HAIR FALL/SHEDDING<br>WITHIN 60 DAYS*</b></p>
+                </div>
+              </div>
+              <div>
+                <a class="button mx-auto" style="width: auto; padding: 15px 25px;" href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply" aria-label="Click here to Shop now">SHOP NOW</a>
+                <a class="button mx-auto" style="width: auto; padding: 15px 25px;" href="/pages/60-day-hair-challenge-reviews" aria-label="Click here to SEE MORE REVIEWS">SEE MORE REVIEWS</a>
+              </div>
+              <p style="font-size: 12px; margin: 10px 0px;">*Based on a survey of ST. TROPICA customers who purchased a Hair Growth Vitamins 60-Day supply and took one capsule daily.</p>
+            </div>        
+          </div>
+          
+          <div class="align-items-center col-xl-7 px-0 mb-4 mb-xl-0 d-flex order-xl-1 order-0">
+            <div class="video-wrapper px-0">
+              <div class="video-container" id="video-container">
+                <video id="trubloom_review_1" class="video-js vjs-default-skin" controls preload="auto" poster="{{ 'Hair_Growth_Vitamins_thumb.png' | asset_url }}" data-setup='{ "fluid" : true }'>
+                  <source src="https://cdn.shopify.com/videos/c/o/v/8e65214f3a9a4fd18fdf79a52075efe7.mp4" type="video/mp4" />
+                  <p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video </p>
+                </video>
+              </div>
+            </div>
+          </div>
+          
+                          
+          </div>
+        </div>
+      </div>
+
+  </section>
+
+  <section class="pb-0 px-0 container-fluid mb-3 mt-5 pt-4">
+    <div class="container-fluid px-0">
+      <h2 class="f-h2-h my-2 text-center">PROOF IS IN THE PICTURES</h2>
+      <div class="row px-xl-4 mx-xl-0 mb-0 mb-xl-5 pt-xl-3">
+        {% render 'homepage-review' %}
+      </div>
+    </div>
+  </section>
+
+  {% comment %}<section class="pb-1 px-0 container-fluid pt-4">
+    <div class="container-fluid px-0">
+      <h2 class="f-h2-h my-2 text-center"> made with scientifically proven ingredients </h2>
+      <p class="px-5 pb-5" style="width: 80%; text-align: center; margin: auto;">PLUS our own proprietary HAIR SUPERFOOD formula. Formulated with essential Bioactive Ingredients including MSM, Zinc, Biotin and Silica which have been SCIENTIFICALLY PROVEN to promote Hair Growth, Hair Thickness, and Hair Strength.</p>
+      <div class="row px-xl-4 px-4 mx-xl-0 mb-0 py-4">
+        <div class="item-container1 px-xl-5 px-4 mx-xl-0 mx-0">
+          {% render 'homepage-ingredients' %}
+        </div>
+      </div>
+    </div>
+  </section>
+                          
+  <section class="d-block d-md-none pb-0 px-0 container-fluid my-3">
+    <div class="container-fluid px-0">
+      <div class="row px-xl-4 mx-xl-0 mb-0 mb-xl-5 pt-xl-3">
+        {% render 'homepage-review1' %}
+      </div>
+    </div>
+  </section>
+
+  <section class="d-block d-md-none pb-0 px-0 container-fluid mb-4">
+    <div class="container-fluid px-3 mt-4">
+      <div class="row px-1 px-xl-0 mx-xl-0 mb-0 mb-xl-5 pt-xl-3">
+        <div class="col-md-3 col-6 px-1">
+          <img src="{{ 'h_vanessa_g.png' | asset_img_url: '10x' }}" data-src="{{ 'h_vanessa_g.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+        </div>
+        <div class="col-md-3 col-6 px-1">
+          <img src="{{ 'home-review14a.png' | asset_img_url: '10x' }}" data-src="{{ 'home-review14a.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+        </div>
+        <div class="col-md-3 col-6 mt-2 px-1">
+          <img src="{{ 'h_melissa_g.png' | asset_img_url: '10x' }}" data-src="{{ 'h_melissa_g.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+        </div>
+        <div class="col-md-3 col-6 mt-2 px-1">
+          <img src="{{ 'deanna_1.png' | asset_img_url: '10x' }}" data-src="{{ 'deanna_1.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+        </div>
+        <div class="col-md-3 col-6 mt-2 px-1">
+          <img src="{{ 'home-review12a.png' | asset_img_url: '10x' }}" data-src="{{ 'home-review12a.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+        </div>
+        <div class="col-md-3 col-6 mt-2 px-1">
+          <img src="{{ 'Latoya_M.png' | asset_img_url: '10x' }}" data-src="{{ 'Latoya_M.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+        </div>
+      </div>
+    </div>
+  </section>
+	
+  <section class="d-none d-md-block pb-0 px-0 container-fluid mb-5">
+    <div class="container-fluid px-5">
+      <div class="row px-xl-4 mx-xl-0 mb-0 mb-xl-5 pt-xl-3">
+        <div class="col-md-3 col-6 px-2">
+          <img src="{{ 'h_vanessa_g.png' | asset_img_url: '10x' }}" data-src="{{ 'h_vanessa_g.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+          
+          <div class="hvrbox-layer_top hvrbox-layer_slideup text-center">
+            <div class="hvrbox-text">
+              <p class="mb-0 mt-3 p-0 caps"><b>Fast hair growth results</b></p>
+              <div class="fc-star">
+                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              </div>
+              <div id="summary">
+                <p class="more collapse" id="collapseSummary500">After two months I noticed my hair felt like it grew a significant length and my hair fall issue decreased Wich I usually have lost alot more strands. I'm feeling happy with the results</p>
+              </div>
+              <span class="home-vitamin-review-span stt-pink-text">- Amy S</span>
+              <a data-fancybox data-options='{"src": "#review1"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+            </div>
+          </div>
+          
+          <!--Review popup-->
+          <div class="review-popup" id="review1">
+            <p class="mb-0 mt-3 p-0 caps"><b>Fast hair growth results, less hair fall</b></p>
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <p>After two months I noticed my hair felt like it grew a significant length and my hair fall issue decreased Wich I usually have lost alot more strands. I'm feeling happy with the results</p>
+            <span class="home-vitamin-review-span stt-pink-text">- Amy S</span>
+          </div>
+          
+        </div>
+        <div class="col-md-3 col-6 px-2">
+          <img src="{{ 'Amarachi.png' | asset_img_url: '10x' }}" data-src="{{ 'Amarachi.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+          
+          <div class="hvrbox-layer_top hvrbox-layer_slideup text-center">
+            <div class="hvrbox-text">
+              <p class="mb-0 mt-3 p-0 caps"><b>Amazing Hair Growth!</b></p>
+              <div class="fc-star">
+                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              </div>
+              <div id="summary">
+                <p class="more collapse" id="collapseSummary500">These hair growth vitamins sure did shock me! I’m so glad that I had the opportunity to try them. I mean the vitamins speak for themselves! Don’t knock it til you try it! 10/10…highly recommend!</p>
+              </div>
+              <span class="home-vitamin-review-span stt-pink-text">- Amarachi</span>
+              <a data-fancybox data-options='{"src": "#review2"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+            </div>
+          </div>
+          
+          <!--Review popup-->
+          <div class="review-popup" id="review2">
+            <p class="mb-0 mt-3 p-0 caps"><b>Amazing Hair Growth!</b></p>
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <p>These hair growth vitamins sure did shock me! I’m so glad that I had the opportunity to try them. I mean the vitamins speak for themselves! Don’t knock it til you try it! 10/10…highly recommend!</p>
+            <span class="home-vitamin-review-span stt-pink-text">- Amarachi</span>
+          </div>
+          
+        </div>
+        <div class="col-md-3 col-6 px-2">
+          <img src="{{ 'h_melissa_g.png' | asset_img_url: '10x' }}" data-src="{{ 'h_melissa_g.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+          
+          <div class="hvrbox-layer_top hvrbox-layer_slideup text-center">
+            <div class="hvrbox-text">
+              <p class="mb-0 mt-3 p-0 caps"><b>Amazing!</b></p>
+              <div class="fc-star">
+                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              </div>
+              <div id="summary">
+                <p class="more collapse" id="collapseSummary500">My aunt told me about St. Tropica I cannot believe the results! In just 2 months my hair is longer and thicker and even curlier! I've used a couple of other hair vitamins in the past but this is the winner! So thrilled to have found St. Tropica!! I will continue to use this! Thank you!</p>
+              </div>
+              <span class="home-vitamin-review-span stt-pink-text">- Melissa G</span>
+              <a data-fancybox data-options='{"src": "#review3"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+            </div>
+          </div>
+          
+          <!--Review popup-->
+          <div class="review-popup" id="review3">
+            <p class="mb-0 mt-3 p-0 caps"><b>Amazing!</b></p>
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <p>My aunt told me about St. Tropica I cannot believe the results! In just 2 months my hair is longer and thicker and even curlier! I've used a couple of other hair vitamins in the past but this is the winner! So thrilled to have found St. Tropica!! I will continue to use this! Thank you!</p>
+            <span class="home-vitamin-review-span stt-pink-text">- Melissa G</span>
+          </div>
+          
+        </div>
+        <div class="col-md-3 col-6 px-2">
+          <img src="{{ 'deanna_1.png' | asset_img_url: '10x' }}" data-src="{{ 'deanna_1.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+          
+          <div class="hvrbox-layer_top hvrbox-layer_slideup text-center">
+            <div class="hvrbox-text">
+              <p class="mb-0 mt-3 p-0 caps"><b>I can't believe my results!</b></p>
+              <div class="fc-star">
+                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              </div>
+              <div id="summary">
+                <p class="more collapse" id="collapseSummary500">I've been struggling with hair loss/thinking for years because of my thyroid. I've tried so many other things and spent so much money and NOTHING ever worked. I've given up on even trying anymore, until I came across St.Tropica!!!! I was very skeptical to try but I decided to give it a try. And I can't believe my results. This hair vitamin is the only thing I've tried that actually seems to be working for me. Also the most affordable thing I've tried. Its given me my confidence back and I don't have to be embarrassed anymore. Thank you St.Tropica 😊</p>
+              </div>
+              <span class="home-vitamin-review-span stt-pink-text">- Deanna T</span>
+              <a data-fancybox data-options='{"src": "#review4"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+            </div>
+          </div>
+          
+          <!--Review popup-->
+          <div class="review-popup" id="review4">
+            <p class="mb-0 mt-3 p-0 caps"><b>I can't believe my results!</b></p>
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <p>I've been struggling with hair loss/thinking for years because of my thyroid. I've tried so many other things and spent so much money and NOTHING ever worked. I've given up on even trying anymore, until I came across St.Tropica!!!! I was very skeptical to try but I decided to give it a try. And I can't believe my results. This hair vitamin is the only thing I've tried that actually seems to be working for me. Also the most affordable thing I've tried. Its given me my confidence back and I don't have to be embarrassed anymore. Thank you St.Tropica 😊</p>
+            <span class="home-vitamin-review-span stt-pink-text">- Deanna T</span>
+          </div>
+          
+        </div>
+        <div class="col-md-3 col-6  mt-3 px-2">
+          <img src="{{ 'Latoya_M.png' | asset_img_url: '10x' }}" data-src="{{ 'Latoya_M.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+          
+          <div class="hvrbox-layer_top hvrbox-layer_slideup text-center">
+            <div class="hvrbox-text">
+              <p class="mb-0 mt-3 p-0 caps"><b>Seriously amazed</b></p>
+              <div class="fc-star">
+                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              </div>
+              <div id="summary">
+                <p class="more collapse" id="collapseSummary500">I'm genuinely amazed by how well and how quickly this product worked!! My hair not only grew but is also STRONGER! I even had very minimal shedding when washing my hair. I absolutely recommend it!</p>
+              </div>
+              <span class="home-vitamin-review-span stt-pink-text">- Latoya M</span>
+              <a data-fancybox data-options='{"src": "#review5"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+            </div>
+          </div>
+          
+          <!--Review popup-->
+          <div class="review-popup" id="review5">
+            <p class="mb-0 mt-3 p-0 caps"><b>Seriously amazed</b></p>
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <p>I'm genuinely amazed by how well and how quickly this product worked!! My hair not only grew but is also STRONGER! I even had very minimal shedding when washing my hair. I absolutely recommend it!</p>
+            <span class="home-vitamin-review-span stt-pink-text">- Latoya M</span>
+          </div>
+          
+        </div>
+        <div class="col-md-3 col-6  mt-3 px-2">
+          <img src="{{ 'home-review12a.png' | asset_img_url: '10x' }}" data-src="{{ 'home-review12a.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+          
+          <div class="hvrbox-layer_top hvrbox-layer_slideup text-center">
+            <div class="hvrbox-text">
+              <p class="mb-0 mt-3 p-0 caps"><b>The best hair vitamins</b></p>
+              <div class="fc-star">
+                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              </div>
+              <div id="summary">
+                <p class="more collapse" id="collapseSummary500">I've been struggling with hair loss for a few years it had gotten so bad these vitamins have saved my hair I cried when I seen the difference I cannot recommend these vitamins enough im so grateful my hair in so much fuller I love it❤</p>
+              </div>
+              <span class="home-vitamin-review-span stt-pink-text">- Stephanie E</span>
+              <a data-fancybox data-options='{"src": "#review6"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+            </div>
+          </div>
+          
+          <!--Review popup-->
+          <div class="review-popup" id="review6">
+            <p class="mb-0 mt-3 p-0 caps"><b>The best hair vitamins</b></p>
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <p>I've been struggling with hair loss for a few years it had gotten so bad these vitamins have saved my hair I cried when I seen the difference I cannot recommend these vitamins enough im so grateful my hair in so much fuller I love it❤</p>
+            <span class="home-vitamin-review-span stt-pink-text">- Stephanie E</span>
+          </div>
+          
+        </div>
+        <div class="col-md-3 col-6  mt-3 px-2">
+          <img src="{{ 'home-review14a.png' | asset_img_url: '10x' }}" data-src="{{ 'home-review14a.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+          
+          <div class="hvrbox-layer_top hvrbox-layer_slideup text-center">
+            <div class="hvrbox-text">
+              <p class="mb-0 mt-3 p-0 caps"><b>Wow.. it works.</b></p>
+              <div class="fc-star">
+                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              </div>
+              <div id="summary">
+                <p class="more collapse" id="collapseSummary500">I took 2 months St Tropica hair vitamins. My perm got losen, but hair grown a lot and fuller.</p>
+              </div>
+              <span class="home-vitamin-review-span stt-pink-text">- Chris Y</span>
+              <a data-fancybox data-options='{"src": "#review7"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+            </div>
+          </div>
+          
+          <!--Review popup-->
+          <div class="review-popup" id="review7">
+            <p class="mb-0 mt-3 p-0 caps"><b>Wow.. it works.</b></p>
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <p>I took 2 months St Tropica hair vitamins. My perm got losen, but hair grown a lot and fuller.</p>
+            <span class="home-vitamin-review-span stt-pink-text">- Chris Y</span>
+          </div>
+          
+        </div>
+        <div class="col-md-3 col-6  mt-3 px-2">
+          <img src="{{ 'Robert_M1.png' | asset_img_url: '10x' }}" data-src="{{ 'Robert_M1.png' | asset_url }}" class="lazyload transition--blur-up img-fluid pill-ingr img-full" alt="ST. TROPICA Hair Growth Vitamins"/>
+          
+          <div class="hvrbox-layer_top hvrbox-layer_slideup text-center">
+            <div class="hvrbox-text">
+              <p class="mb-0 mt-3 p-0 caps"><b>MY HAIR IS GROWING LIKE A WEED!</b></p>
+              <div class="fc-star">
+                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              </div>
+              <div id="summary">
+                <p class="more collapse" id="collapseSummary500">I have had a great experience with St. Tropica! My hair is growing like a weed! My hair is twisted & I experienced so much growth just in the 1st month alone! I had no side effects that some others experienced, so I’m grateful for that! Give it a try….u have nothing to lose!!</p>
+              </div>
+              <span class="home-vitamin-review-span stt-pink-text">- Robert M</span>
+              <a data-fancybox data-options='{"src": "#review8"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+            </div>
+          </div>
+          
+          <!--Review popup-->
+          <div class="review-popup" id="review8">
+            <p class="mb-0 mt-3 p-0 caps"><b>MY HAIR IS GROWING LIKE A WEED!</b></p>
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <p>I have had a great experience with St. Tropica! My hair is growing like a weed! My hair is twisted & I experienced so much growth just in the 1st month alone! I had no side effects that some others experienced, so I’m grateful for that! Give it a try….u have nothing to lose!!</p>
+            <span class="home-vitamin-review-span stt-pink-text">- Robert M</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>{% endcomment %}           
+                          
+  <section class="pb-0 px-0 container-fluid d-none d-md-block pt-0">
+    <div class="container-fluid px-md-5 py-2">
+      <div class="row px-xl-4 mx-xl-0 py-4">
+        <h2 class="f-h2-h my-2 text-center pb-3">FEATURED IN</h2>
+        <div class="col-12 col-md d-flex justify-content-evenly">
+          <img src="{{ 'Stt_featured_in_1.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_1.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_2.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_2.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_3.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_3.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_4.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_4.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_5.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_5.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_6.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_6.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_7.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_7.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_8.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_8.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured" alt="ST. TROPICA Featured in"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-0 px-0 container-fluid d-block d-md-none">
+    <div class="container-fluid px-md-5 py-2">
+      <div class="row px-xl-4 mx-xl-0 py-4">
+        <h2 class="f-h2-h my-2 text-center pb-3">FEATURED IN</h2>
+        <div class="col-12 col-md d-flex flex-column align-items-center">
+          <img src="{{ 'Stt_featured_in_1.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_1.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_2.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_2.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured mt-3" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_3.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_3.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured mt-3" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_4.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_4.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured mt-3" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_5.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_5.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured mt-3" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_6.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_6.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured mt-3" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_7.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_7.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured mt-3" alt="ST. TROPICA Featured in"/>
+          <img src="{{ 'Stt_featured_in_8.png' | file_img_url: '10x' }}" data-src="{{ 'Stt_featured_in_8.png' | file_url }}" class="lazyload transition--blur-up px-2 stt_featured mt-3" alt="ST. TROPICA Featured in"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% schema %}
+  {
+    "name": "STT",
+    "class": "stt",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "html_content",
+        "label": "HTML",
+        "default": "<div class='container is-flex is-justify-center'><h2 class='title'>Your own custom HTML</h2></div>"
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "standard",
+        "options": [
+          {
+            "value": "half",
+            "label": "Half"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Left spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Right spacing",
+        "default": 0,
+        "min": 0,
+        "max": 80,
+        "unit": "px"
+      },
+      {
+        "type": "select",
+        "id": "animation",
+        "label": "Animation",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "fadeIn",
+            "label": "Fade in"
+          },
+          {
+            "value": "fadeInDown",
+            "label": "Fade in down"
+          },
+          {
+            "value": "fadeInLeft",
+            "label": "Fade in left"
+          },
+          {
+            "value": "fadeInRight",
+            "label": "Fade in right"
+          },
+          {
+            "value": "slideInLeft",
+            "label": "Slide in left"
+          },
+          {
+            "value": "slideInRight",
+            "label": "Slide in right"
+          },
+          {
+            "value": "zoomIn",
+            "label": "Zoom in"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Advanced"
+      },
+      {
+        "type": "paragraph",
+        "content": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+      },
+      {
+        "type": "text",
+        "id": "css_class",
+        "label": "CSS Class"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "presets": [
+      {
+        "name": "STT",
+        "category": "Layout",
+        "settings": {
+
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Splide( '#best-sellers', {
+      perPage: 4,
+      pagination: false,
+      breakpoints: {
+        640: {
+          perPage: 1,
+          padding: '15%',
+          pagination: true,
+          arrows: false,
+          type: 'loop',
+        },
+        1080: {
+          perPage: 2,
+          padding: '15%',
+          rewind: true,
+        },
+        1920: {
+          perPage: 4,
+          rewind: true,
+        },
+      }
+    }).mount();
+
+    var player = videojs('trubloom_review_1');
+
+  });
+</script>
+                          

@@ -1,0 +1,447 @@
+<div class="container">
+  <div class="row mx-0 px-md-5">
+    <div class="product-tabs mt-5">
+      
+      <ul class="nav nav-pills" id="pills-tab" role="tablist">
+        {% comment %}{% if product.id == 6722164293735 %}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-6min-tab" data-bs-toggle="pill" data-bs-target="#pills-6min" type="button" role="tab" aria-controls="pills-6min" aria-selected="true">6 MIN HAIR CHALLENGE</button>
+          </li> 
+        {% endif %}{% endcomment %}
+        {% if section.settings.show__desc %}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-description-tab" data-bs-toggle="pill" data-bs-target="#pills-description" type="button" role="tab" aria-controls="pills-description" aria-selected="true">DESCRIPTION</button>
+          </li> 
+        {% endif %}
+        {% if section.settings.show__dire %}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-directions-tab" data-bs-toggle="pill" data-bs-target="#pills-directions" type="button" role="tab" aria-controls="pills-directions" aria-selected="false">DIRECTIONS</button>
+          </li>
+        {% endif %}
+        {% if section.settings.show__ingr %}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-ingredients-tab" data-bs-toggle="pill" data-bs-target="#pills-ingredients" type="button" role="tab" aria-controls="pills-ingredients" aria-selected="false">INGREDIENTS</button>
+          </li>
+        {% endif %}
+        {% if section.settings.show__faqs %}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-faqs-tab" data-bs-toggle="pill" data-bs-target="#pills-faqs" type="button" role="tab" aria-controls="pills-faqs" aria-selected="false">FAQs</button>
+          </li>
+        {% endif %}
+        {% if section.settings.show__mbg %}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-guarantee-tab" data-bs-toggle="pill" data-bs-target="#pills-guarantee" type="button" role="tab" aria-controls="pills-guarantee" aria-selected="false">MONEY-BACK GUARANTEE</button>
+          </li>
+        {% endif %}
+      </ul>
+      
+      <div class="tab-content" id="pills-tabContent">
+
+        {% comment %}{% if product.id == 6722164293735 %}
+        <div class="tab-pane fade show active" id="pills-6min" role="tabpanel" aria-labelledby="pills-6min-tab">
+          <section>
+            <div class="container-fluid px-0">
+              <div class="row d-flex align-items-center m-0 lite-gr-bg">
+                <div class="col-md p-md-0 {{ section.settings.desc__side }}">
+                  <div class="p-md-5 p-3">
+                    <p>
+                    <b style="text-transform: uppercase; color: #fe9bc5;">Take Our New 6 MINUTE Hair Challenge!</b>
+                    <br><br>
+                    Try our mind-boggling new Hair Growth Shampoo Set. It will literally Transform Your Hair and Your Scalp in 6 Minutes Flat, or Your Money Back.
+                    <br><br>
+                    2 Years in the making, because it had to check ALL the boxes. And believe us it does.
+                    <br><br>
+                    Our Promise: If it doesn’t completely transform both your Hair and your Scalp after just 1 single use,
+                    better than any shampoo experience you’ve ever had… leaving your Hair &amp; Scalp feeling better than
+                    you’ve ever known… simply send it back for a Full Refund!
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md p-0 order-1">
+                  
+                    <div class="row d-flex align-items-stretch m-0 lite-gr-bg">
+                      <div class="align-items-center col-xl-3 px-4 mb-4 mb-xl-0 d-flex">
+                        <div class="row m-0">
+                          <div class="video-wrapper px-0 pe-xl-3">
+                            <div class="video-container" id="video-container">
+                              <video id="truvideo" src="https://sttropica.net/shampoo_conditioner.mp4" playsinline controls preload="auto" class="px-0 video-js vjs-16-9" poster="{{ 'shampoo_conditioner_6min.png' | asset_url }}" data-setup="{}">
+                                <source src="https://sttropica.net/shampoo_conditioner.mp4" type="video/mp4" />
+                                <p class="vjs-no-js">
+                                  To view this video please enable JavaScript, and consider upgrading to a
+                                  web browser that supports HTML5 video
+                                </p>
+                              </video>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                                  
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        {% endif %}
+        {% endcomment %}
+        
+        {% if section.settings.show__desc %}
+        <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+          <section>
+            <div class="container-fluid px-0">
+              <div class="row d-flex align-items-center m-0 lite-gr-bg">
+                <div class="col-md p-md-0 {{ section.settings.desc__side }}">
+                  <div class="p-md-5 p-3">
+                    {{ section.settings.desc__cont }}
+                    <div>
+                      {% if section.settings.desc__img__url_text1 != blank %}<a href="{{ section.settings.desc__img__url1 }}" class="button">{{ section.settings.desc__img__url_text1 }}</a>{% endif %}
+                      {% if section.settings.desc__img__url_text2 != blank %}<a href="{{ section.settings.desc__img__url2 }}" class="button">{{ section.settings.desc__img__url_text2 }}</a>{% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md p-0 order-1">
+                  <a href="{{section.settings.desc__img__url}}">{% render 'image-element', image: section.settings.desc__img, alt: alt_text, object_fit: align_height, max_height: height %}</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        {% endif %}
+        
+        {% if section.settings.show__dire %}
+          <div class="tab-pane fade mt-5" id="pills-directions" role="tabpanel" aria-labelledby="pills-directions-tab">{{ section.settings.dire__cont }}</div>
+        {% endif %}
+        {% if section.settings.show__ingr %}
+        <div class="tab-pane fade" id="pills-ingredients" role="tabpanel" aria-labelledby="pills-ingredients-tab">
+          <section>
+            <div class="container-fluid px-0">
+              <div class="row d-flex align-items-center m-0 lite-gr-bg">
+                <div class="col-md p-4 p-md-0 {{ section.settings.ingr__side }}">
+                  <div class="px-md-5">
+                    <p>{{ section.settings.ingr__cont }}</p>
+                  </div>
+                </div>
+                <div class="col-md p-0 order-1">
+                  <a href="{{ section.settings.ingr__img | img_url : 'master' }}" class="ingr-img-p" data-fancybox>
+                    {% render 'image-element', image: section.settings.ingr__img, alt: alt_text, object_fit: align_height, max_height: height %}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div> 
+        {% endif %}
+        {% if section.settings.show__faqs %}
+          <div class="tab-pane fade mt-5" id="pills-faqs" role="tabpanel" aria-labelledby="pills-ingredients-tab">{{ section.settings.faqs__cont }}</div>
+        {% endif %}
+        {% if section.settings.show__mbg %}
+          <div class="tab-pane fade mt-5" id="pills-guarantee" role="tabpanel" aria-labelledby="pills-guarantee-tab">{% render 'Product__Guarantee' %}</div>
+        {% endif %}
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Product Tabs",
+    "class": "product-tabs",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product Description"
+      },
+	  {
+        "type": "checkbox",
+        "id": "show__desc",
+        "label": "Show Description",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "desc__img",
+        "label": "Description Image"
+      },
+      {
+        "type": "url",
+        "id": "desc__img__url",
+        "label": "Image link"
+      },
+      {
+        "type": "select",
+        "id": "desc__side",
+        "label": "Swap Image Side",
+        "default": "order-0",
+        "options": [
+          {
+            "value": "order-0",
+            "label": "Right"
+          },
+          {
+            "value": "order-2",
+            "label": "Left"
+          }
+        ]
+      },
+	  {
+        "type": "html",
+        "id": "desc__cont",
+        "label": "Description Content"
+      },
+	  {
+        "type": "text",
+        "id": "desc__img__url_text1",
+        "label": "Button 1"
+      },
+      {
+        "type": "url",
+		"id": "desc__img__url1",
+        "label": "Button 1 link"
+      },
+	  {
+        "type": "text",
+        "id": "desc__img__url_text2",
+        "label": "Button 2"
+      },
+      {
+        "type": "url",
+		"id": "desc__img__url2",
+        "label": "Button 2 link"
+      },
+      {
+        "type": "header",
+        "content": "Product Direction"
+      },
+	  {
+        "type": "checkbox",
+        "id": "show__dire",
+        "label": "Show Direction",
+        "default": true
+      },
+	  {
+        "type": "liquid",
+        "id": "dire__cont",
+        "label": "Direction Content"
+      },
+      {
+        "type": "header",
+        "content": "Product Ingredients"
+      },
+	  {
+        "type": "checkbox",
+        "id": "show__ingr",
+        "label": "Show Ingredients",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "ingr__img",
+        "label": "Ingredients Image"
+      },
+      {
+        "type": "select",
+        "id": "ingr__side",
+        "label": "Swap Image Side",
+        "default": "order-0",
+        "options": [
+          {
+            "value": "order-0",
+            "label": "Right"
+          },
+          {
+            "value": "order-2",
+            "label": "Left"
+          }
+        ]
+      },
+	  {
+        "type": "html",
+        "id": "ingr__cont",
+        "label": "Ingredients Content"
+      },
+      {
+        "type": "header",
+        "content": "Product FAQs"
+      },
+	  {
+        "type": "checkbox",
+        "id": "show__faqs",
+        "label": "Show FAQs",
+        "default": true
+      },
+	  {
+        "type": "html",
+        "id": "faqs__cont",
+        "label": "FAQs Content"
+      },
+      {
+        "type": "header",
+        "content": "Product Guarantee"
+      },
+	  {
+        "type": "checkbox",
+        "id": "show__mbg",
+        "label": "Show Guarantee",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "standard",
+        "options": [
+          {
+            "value": "half",
+            "label": "Half"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Left spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Right spacing",
+        "default": 0,
+        "min": 0,
+        "max": 80,
+        "unit": "px"
+      },
+      {
+        "type": "select",
+        "id": "review__side",
+        "label": "Review Side",
+        "default": "order-0",
+        "options": [
+          {
+            "value": "order-0",
+            "label": "Right"
+          },
+          {
+            "value": "order-2",
+            "label": "Left"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "animation",
+        "label": "Animation",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "fadeIn",
+            "label": "Fade in"
+          },
+          {
+            "value": "fadeInDown",
+            "label": "Fade in down"
+          },
+          {
+            "value": "fadeInLeft",
+            "label": "Fade in left"
+          },
+          {
+            "value": "fadeInRight",
+            "label": "Fade in right"
+          },
+          {
+            "value": "slideInLeft",
+            "label": "Slide in left"
+          },
+          {
+            "value": "slideInRight",
+            "label": "Slide in right"
+          },
+          {
+            "value": "zoomIn",
+            "label": "Zoom in"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Advanced"
+      },
+      {
+        "type": "paragraph",
+        "content": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+      },
+      {
+        "type": "text",
+        "id": "css_class",
+        "label": "CSS Class"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Tabs",
+        "category": "Layout",
+        "settings": {
+
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+$('#pills-tab li:first button').addClass('active');
+$('#pills-tabContent div:first').addClass('show');
+$('#pills-tabContent div:first').addClass('active');
+
+{% endjavascript %}

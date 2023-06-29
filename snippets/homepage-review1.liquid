@@ -1,0 +1,62 @@
+{% assign reviewCount = 1 %}
+
+<div class="item-container1 px-4">
+  <div class="review-carousel" data-flickity='{ "prevNextButtons": false, "wrapAround": true, "contain": true, "pageDots": true, "cellAlign": "left", "imagesLoaded": true, "adaptiveHeight": true, "arrowShape": "M30.8 100 0 49.7 30.8 0l3.4 2.1L4.7 49.7l29.5 48.2z" }'>
+    
+    {% for i in (1..4) %}
+    
+    	{% if forloop.index == 1 %}
+          {% assign reviewimage = 'Amarachi.png' %}
+          {% assign reviewheading = 'AMAZING HAIR GROWTH!' %}
+          {% assign reviewcontent = 'These hair growth vitamins sure did shock me! I’m so glad that I had the opportunity to try them. I mean the vitamins speak for themselves! Don’t knock it til you try it! 10/10…highly recommend!' %}
+          {% assign reviewname = 'Amarachi' %}
+        {% elsif forloop.index == 2 %}
+          {% assign reviewimage = 'h_vanessa_g.png' %}
+          {% assign reviewheading = 'FAST HAIR GROWTH RESULTS' %}
+          {% assign reviewcontent = "After two months I noticed my hair felt like it grew a significant length and my hair fall issue decreased Wich I usually have lost alot more strands. I'm feeling happy with the results" %}
+          {% assign reviewname = 'Amy S' %}
+        {% elsif forloop.index == 3 %}
+          {% assign reviewimage = 'Robert_M1.png' %}
+          {% assign reviewheading = 'My hair is growing like a weed!' %}
+          {% assign reviewcontent = 'I have had a great experience with St. Tropica! My hair is growing like a weed! My hair is twisted & I experienced so much growth just in the 1st month alone! I had no side effects that some others experienced, so I’m grateful for that! Give it a try….u have nothing to lose!!' %}
+          {% assign reviewname = 'Robert M' %}
+    	{% else %}
+          {% assign reviewimage = 'Jenn_P.png' %}
+          {% assign reviewheading = 'So glad I tried these vitamins' %}
+          {% assign reviewcontent = 'I was losing hair in the front due to overwhelming anxiety. The lost of my hair was increasing the anxiety so I was in a losing cycle. At the end of the month, I noticed the bald spot almost gone! I’m so glad I went for the purchase.' %}
+          {% assign reviewname = 'Jenn P' %}
+    	{% endif %}
+    
+        <div class="carousel-cell col-md-4 col-12 px-md-2">
+          <img src="{{ reviewimage | asset_img_url: '10x' }}" data-src="{{ reviewimage | asset_url }}"  width="320" height="274" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h">
+          <div class="hvrbox-layer_top hvrbox-layer_slideup text-center">
+            <div class="hvrbox-text">
+              <p class="mb-0 mt-3 p-0 caps"><b>{{ reviewheading }}</b></p>
+              <div class="fc-star">
+                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              </div>
+              <div id="summary">
+                <p class="more collapse" id="collapseSummary500">{{ reviewcontent }}</p>
+              </div>
+              <span class="home-vitamin-review-span stt-pink-text">- {{ reviewname }}</span>
+              <a data-fancybox data-options='{"src": "#reviews{{reviewCount}}"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+            </div>
+          </div>
+          <!--Review popup-->
+          <div class="review-popup" id="reviews{{reviewCount}}">
+            <img src="{{ reviewimage | asset_img_url: '10x' }}" data-src="{{ reviewimage | asset_url }}"  width="320" height="274" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h mb-3">
+            <p class="mb-0 mt-3 p-0 caps" data-selectable="true"><b>{{ reviewheading }}</b></p>
+            <div class="fc-star">
+              <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            </div>
+            <p data-selectable="true">{{ reviewcontent }}</p>
+            <span class="home-vitamin-review-span stt-pink-text" data-selectable="true">- {{ reviewname }}</span>
+          </div>
+        </div>
+    
+        {% assign reviewCount = reviewCount | plus:1 %}
+    
+    {% endfor %}
+    
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container pt-4"> 
+  <div class="row mx-0">
+    <img src="{{ 'pickyourhairchallenge.png' | asset_img_url: '10x' }}" data-src="{{ 'pickyourhairchallenge.png' | asset_url }}"  class="lazyload transition--blur-up img-fluid-h d-none d-md-block mb-0" alt="ST. TROPICA Hair Growth Challenge"/>
+    <img src="{{ 'pickyourhairchallenge_m.png' | asset_img_url: '10x' }}" data-src="{{ 'pickyourhairchallenge_m.png' | asset_url }}"  class="lazyload transition--blur-up img-fluid-h d-block d-md-none" alt="ST. TROPICA Hair Growth Challenge"/>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mx-0">
+    <div class="col-md-3">
+      <img src="{{ 'marchmadness60day.png' | asset_img_url: '10x' }}" data-src="{{ 'marchmadness60day.png' | asset_url }}"  class="lazyload transition--blur-up img-fluid-h d-none d-md-block mb-0" alt="ST. TROPICA Hair Growth Challenge"/>
+      <img src="{{ 'marchmadness60day_m.png' | asset_img_url: '10x' }}" data-src="{{ 'marchmadness60day_m.png' | asset_url }}"  class="lazyload transition--blur-up img-fluid-h d-block d-md-none mb-3" alt="ST. TROPICA Hair Growth Challenge"/>
+    </div>
+    <div class="col-md-3 col-12 px-md-2">
+      <!-- 2 Months Supply Hair Challenge -->
+      <div class="item">
+        {% for product in collections.all.products %}
+        {% if product.id == 1948309946471 %}
+        {% render 'product-thumbnail-slide', product: product %}
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-3 d-block d-md-none">
+      <img src="{{ 'marchmadness10min_m.png' | asset_img_url: '10x' }}" data-src="{{ 'marchmadness10min_m.png' | asset_url }}"  class="lazyload transition--blur-up img-fluid-h mb-3" alt="ST. TROPICA Hair Growth Challenge"/>
+    </div>
+    <div class="col-md-3 col-12 px-md-2">
+      <div class="item">
+        {% for product in collections.all.products %}
+        {% if product.id == 6722164293735 %}
+        {% render 'product-thumbnail-slide', product: product %}
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-3 d-none d-md-block">
+      <img src="{{ 'marchmadness10min.png' | asset_img_url: '10x' }}" data-src="{{ 'marchmadness10min.png' | asset_url }}"  class="lazyload transition--blur-up img-fluid-h mb-0" alt="ST. TROPICA Hair Growth Challenge"/>
+    </div>
+  </div>
+</div>

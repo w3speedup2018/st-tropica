@@ -1,0 +1,213 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+    {% if section.settings.width == 'wide' -%}
+      width: 100%;
+    {%- elsif section.settings.width == 'half' -%}
+      width: 50%;
+    {%- endif %}
+  }
+  {% render 'css-loop',
+          css: section.settings.custom_css,
+          id: section.id
+  %}
+{% endstyle %}
+
+<section class="section {{ section.settings.css_class }}
+                is-width-{{ section.settings.width }}
+                {% if background_alpha != 0 or gradient_alpha != 0  %}
+                has-background
+                {% endif %}
+                "
+         data-section-id="{{ section.id }}"
+         {% if section.settings.animation != "none" %}
+         data-scroll-class="{{ section.settings.animation }}"
+         {% endif %}>
+  <div class="container">
+    <div class="row d-flex align-items-center m-0 lite-gr-bg">
+      <div class="col-md-6 lite-gr-bg d-flex align-items-center {{ section.settings.review__side }} px-0">
+        {% if page.url contains "mens-hair-loss"%}
+        	<img src="{{ 'survey_banner_2.png' | asset_img_url: '10x' }}" data-src="{{ 'survey_banner_2.png' | asset_url }}"  width="649" height="527" class="p-feature-img pe-xl-3 pe-0 lazyload transition--blur-up img-fluid pill-ingr img-full img-fluid-h" alt="ST. TROPICA Hair Growth Vitamins"/>
+        {% else %}
+        	<img src="{{ 'survey_banner_1.png' | asset_img_url: '10x' }}" data-src="{{ 'survey_banner_1.png' | asset_url }}"  width="649" height="527" class="p-feature-img pe-xl-3 pe-0 lazyload transition--blur-up img-fluid pill-ingr img-full img-fluid-h" alt="ST. TROPICA Hair Growth Vitamins"/>
+        {% endif %}
+      </div>
+      <div class="col-md-6 order-1 px-5">
+        <h2 class="f-h2-h mb-0 mt-2 d-none d-xl-block">PROVEN HAIR SUPERFOODS</h2>
+        <h2 class="f-h2-h mb-0 mt-2 d-block d-xl-none text-center">PROVEN HAIR SUPERFOODS</h2>
+        <p class="pt-2">Did you know? In addition to all of the essential hair nutrients you get, part of what makes ST.TROPICA Hair Vitamins so unique is our Proprietary Hair Superfood Formula, which utilize Proven, legendary, time-honored ingredients which have been used for centuries in different parts of the world, as a Secret to Beautiful Lustrous Hair.</p>
+        <div class="mt-4">
+          <a class="button mx-auto" style="width: auto; padding: 15px 25px;" href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply?ref={{ section.settings.affiliate_code }}" aria-label="Click here to Shop now">SHOP NOW</a>
+          <a class="button mx-auto" style="width: auto; padding: 15px 25px;" href="/products/st-tropica-hair-vitamins-hair-challenge-2-month-supply?ref={{ section.settings.affiliate_code }}" aria-label="Click here to Learn MORE">LEARN MORE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Specialized Survey",
+    "class": "specialized_survey",
+    "settings": [
+      {
+        "type": "text",
+        "id": "affiliate_code",
+        "label": "Affiliate Code"
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "standard",
+        "options": [
+          {
+            "value": "half",
+            "label": "Half"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Left spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Right spacing",
+        "default": 0,
+        "min": 0,
+        "max": 80,
+        "unit": "px"
+      },
+      {
+        "type": "select",
+        "id": "review__side",
+        "label": "Review Side",
+        "default": "order-0",
+        "options": [
+          {
+            "value": "order-0",
+            "label": "Right"
+          },
+          {
+            "value": "order-2",
+            "label": "Left"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "animation",
+        "label": "Animation",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "fadeIn",
+            "label": "Fade in"
+          },
+          {
+            "value": "fadeInDown",
+            "label": "Fade in down"
+          },
+          {
+            "value": "fadeInLeft",
+            "label": "Fade in left"
+          },
+          {
+            "value": "fadeInRight",
+            "label": "Fade in right"
+          },
+          {
+            "value": "slideInLeft",
+            "label": "Slide in left"
+          },
+          {
+            "value": "slideInRight",
+            "label": "Slide in right"
+          },
+          {
+            "value": "zoomIn",
+            "label": "Zoom in"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Advanced"
+      },
+      {
+        "type": "paragraph",
+        "content": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+      },
+      {
+        "type": "text",
+        "id": "css_class",
+        "label": "CSS Class"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Specialized Survey",
+        "category": "Layout",
+        "settings": {
+
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

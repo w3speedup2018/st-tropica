@@ -1,0 +1,29 @@
+<hr>
+
+{% assign vendor = product.vendor %}
+{% assign product_handle = product.handle %}
+{% assign counter = '' %}
+<div class"grid grid--uniform grid--view-items">
+{% for product in collections['st-tropica-giftsets'].all_products %}
+ {% if vendor == product.vendor and counter.size < 1 and product_handle != product.handle %}
+  {% capture temp %}{{ counter }}*{% endcapture %}
+  {% assign counter = temp %}
+  <div class="row">
+    <div class="col-6">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
+        <img alt="{{ product.title }}" src="{{ product.images.first | product_img_url: 'medium' }}"/>
+      </a>
+    </div>
+    <div class="col-6">
+      {% unless collection_handles contains 'coming-soon' %}
+      {% render 'product__form',
+                        context: 'product',
+      show_payment_button: section.settings.show_payment_button,
+      collection_handles: collection_handles
+      %}
+      {% endunless %}
+    </div>
+  </div>
+ {% endif %} 
+{% endfor %}
+</div>

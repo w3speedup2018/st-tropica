@@ -1,0 +1,16 @@
+<div class="container px-md-5">
+  <div class="lite-gr-bg m-0 row mt-5 pt-4 d-flex justify-content-around">
+    <div class="col-md-8 d-flex align-items-center justify-content-around">
+      {% for product in collections.all.products %}
+      {% if product.id == 1948309946471 %}
+      {% include 'product-featured', sidebar: sidebar %}
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>  
+</div>
+
+<div id="stamped-main-widget" class="stamped-main-widget stamped-style-borderless" data-widget-style="standard" data-product-id="1948309946471" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: " ? ", " % 3F" | replace: "& "," % 26"}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" 
+     data-keywords="Hair Growth, Hair Loss, Thinning, Thicker Hair, Bald Spots, Longer Hair, Healthier Hair, Curly, Fuller, Color, Nails, Skin"> {{ product.metafields.stamped.reviews }} </div>
+</div>
+<br><br>

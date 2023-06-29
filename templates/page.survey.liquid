@@ -1,0 +1,170 @@
+<script src="{{ 'stt_contact.js' | asset_url }}" defer></script>
+
+<style type="text/css">
+  .xs {
+    font-size: 0.575rem !important;
+  }
+  .error {
+    color: #a94442
+  }
+  .g-recaptcha > div {
+    margin: auto;
+  }
+  .input-group textarea {
+    border-radius: 0;
+    border-color: #d1d0d0;
+    padding: 20px;
+  }
+  .input-group input, .input-group select {
+    height: 60px;
+    border-radius: 0;
+    width: 100%;
+    border-color: #d1d0d0;
+    padding: 20px;
+  }
+  .dropdown-menu {
+    margin-top: .75rem;
+  }
+  .caption {
+    width: auto;
+  }
+  .rating-container .caption {
+    vertical-align: baseline !important;
+  }
+  [type=submit]:disabled {
+    cursor: wait !important;
+  }
+  .rating-container .filled-stars {
+    -webkit-text-stroke: 1px #ff92c5 !important;
+    text-shadow: 2px 3px 4px #e0e0e0 !important;
+  }
+  .empty-stars .star .fas.fa-star {
+    color: #bcc1c7;
+  }
+  .filled-stars .star .fas.fa-star {
+    color: #fe9bc9;
+    font-size: 1em;
+  }
+  .filled-stars .star .fas.fa-star:before,
+  .empty-stars .star .fas.fa-star:before {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .rating-container .caption .label {
+    color: #fff;
+  }
+  small.text-muted {
+    line-height: 1.5;
+  }
+  .dz-default.dz-message span {
+    border: 2px dashed #ced4da;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f9fcff;
+  }
+  .dropzone .dz-message {
+    margin: 13% 0 !important;
+  }
+  input[type=radio] {
+    width: auto;
+    height: auto;
+    margin: 0.35em;
+    margin-left: 0 !important;
+  }
+  .q-ans{
+    background: #f5f5f5;
+    width: fit-content;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+  }
+  
+</style>
+
+
+<div class="col-md-6 mx-auto p-4 mb-0">
+  <form id="stt_contact" action="https://sttropica.net/Review/survey-form.php">
+    <div class="row">
+      <div class=" col-md-6 mb-3">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" name="fields[field_1]" placeholder="First Name" class="form-control" id="field_1" required>
+          </div>
+        </div>
+      </div>
+      <div class=" col-md-6 mb-3">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" name="fields[field_2]" placeholder="Last Name" class="form-control" id="field_2" required>
+          </div>
+        </div>
+      </div>
+      <div class=" col-md-6 mb-3">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="email" name="fields[field_3]" placeholder="Email Address" class="form-control" id="field_3" data-rule-email="1" data-msg-email="Please provide a valid email" required>
+          </div>
+        </div>
+      </div>
+      <div class=" col-md-6 mb-3">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="email" name="fields[field_4]" placeholder="Confirm your Email Address" class="form-control" id="field_4" required>
+          </div>
+        </div>
+      </div>
+      
+      <p class="mb-0">1. Did you get significantly longer hair within 60 days?</p>
+      <div class=" col-md-12 mb-3">
+        <div class="form-group">
+          <div class="input-group q-ans">
+            <input type="radio" name="fields[field_5]" checked value="Yes" placeholder="Yes" id="field_5_a">
+            <label for="field_5_a" class="me-3">Yes</label>
+            <input type="radio" name="fields[field_5]" value="No" placeholder="No" id="field_5_b">
+            <label for="field_5_b">No</label>
+          </div>
+        </div>
+      </div>
+      
+      <p class="mb-0">2. Did you get noticeably thicker hair within 60 days?</p>
+      <div class=" col-md-12 mb-3">
+        <div class="form-group">
+          <div class="input-group q-ans">
+            <input type="radio" name="fields[field_6]" checked value="Yes" placeholder="Yes" id="field_6_a">
+            <label for="field_6_a" class="me-3">Yes</label> 
+            <input type="radio" name="fields[field_6]" value="No" placeholder="No" id="field_6_b">
+            <label for="field_6_b">No</label> 
+          </div>
+        </div>
+      </div>
+      
+      <p class="mb-0">3. Did you experience significantly less hair fall/shedding within 60 days?</p>
+      <div class=" col-md-12 mb-3">
+        <div class="form-group">
+          <div class="input-group q-ans">
+            <input type="radio" name="fields[field_7]" checked value="Yes" placeholder="Yes" id="field_7_a">
+            <label for="field_7_a" class="me-3">Yes</label> 
+            <input type="radio" name="fields[field_7]" value="No" placeholder="No" id="field_7_b">
+            <label for="field_7_b">No</label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="btn_show" class=" col-md-12 text-center mx-auto">
+      <button class="button" data-btn_loading="Submitting..." data-btn_text="Submit" type="submit">Submit</button>
+    </div>
+    <div id="spin_show" class="text-center" style="display: none;">
+      <div class="spinner-border" role="status"> <span class="sr-only"></span> </div>
+    </div>
+    <div id="text_show" class="text-center c-success mt-3" style="display: none;">
+      <p><b>Thank You!</b>
+        <br>We have received your Feedback! <br>
+        - xo ST. TROPICA</p>
+    </div>
+  </form>
+</div>
+
+<script async="" src="//www.google.com/recaptcha/api.js?v=1"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script async="" src="//cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>

@@ -1,0 +1,356 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+    {% if section.settings.width == 'wide' -%}
+      width: 100%;
+    {%- elsif section.settings.width == 'half' -%}
+      width: 50%;
+    {%- endif %}
+  }
+  {% render 'css-loop',
+          css: section.settings.custom_css,
+          id: section.id
+  %}
+{% endstyle %}
+
+<section class="section {{ section.settings.css_class }}
+                is-width-{{ section.settings.width }}
+                {% if background_alpha != 0 or gradient_alpha != 0  %}
+                has-background
+                {% endif %}
+                "
+         data-section-id="{{ section.id }}"
+         {% if section.settings.animation != "none" %}
+         data-scroll-class="{{ section.settings.animation }}"
+         {% endif %}>
+  <div class="container px-1">
+    <div class="row m-0">
+      <h1 class="title text-center">{{ section.settings.specialized__review_title }}</h1>
+      <div class="px-0 review-carousel" id="hairchallenge-slide1" data-flickity='{ "wrapAround": false, "contain": true, "groupCells": true, "pageDots": false, "cellAlign": "left", "imagesLoaded": true, "adaptiveHeight": true, "arrowShape": "M30.8 100 0 49.7 30.8 0l3.4 2.1L4.7 49.7l29.5 48.2z" }'>
+        {% for block in section.blocks %}
+          {% case block.type %}
+          {% when '60day-challenge' %}
+          {% include 'specialized__slide' %}
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Specialized Review Slide",
+    "class": "specialized",
+    "settings": [
+      {
+        "type": "text",
+        "id": "specialized__review_title",
+        "label": "Review Slide Title"
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "standard",
+        "options": [
+          {
+            "value": "half",
+            "label": "Half"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Left spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Right spacing",
+        "default": 0,
+        "min": 0,
+        "max": 80,
+        "unit": "px"
+      },
+      {
+        "type": "select",
+        "id": "animation",
+        "label": "Animation",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "fadeIn",
+            "label": "Fade in"
+          },
+          {
+            "value": "fadeInDown",
+            "label": "Fade in down"
+          },
+          {
+            "value": "fadeInLeft",
+            "label": "Fade in left"
+          },
+          {
+            "value": "fadeInRight",
+            "label": "Fade in right"
+          },
+          {
+            "value": "slideInLeft",
+            "label": "Slide in left"
+          },
+          {
+            "value": "slideInRight",
+            "label": "Slide in right"
+          },
+          {
+            "value": "zoomIn",
+            "label": "Zoom in"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Advanced"
+      },
+      {
+        "type": "paragraph",
+        "content": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+      },
+      {
+        "type": "text",
+        "id": "css_class",
+        "label": "CSS Class"
+      },
+      {
+        "type": "text",
+        "id": "css_id",
+        "label": "ID"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+  	"blocks": [
+    {
+      "type": "60day-challenge",
+      "name": "60 Day Challenge",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Review One"
+        },
+        {
+          "type": "select",
+          "id": "review__Count1",
+          "label": "Review One",
+          "default": "true",
+          "options": [
+            {
+              "value": "true",
+              "label": "True"
+            },
+            {
+              "value": "false",
+              "label": "False"
+            }
+          ]
+        },
+        {
+          "id": "ch_review_img",
+          "type": "image_picker",
+          "label": "Day 1 - Day 60"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Name"
+        },
+        {
+          "type": "textarea",
+          "id": "ch_review_content",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review Two"
+        },
+        {
+          "type": "select",
+          "id": "review__Count2",
+          "label": "Review Two",
+          "default": "false",
+          "options": [
+            {
+              "value": "true",
+              "label": "True"
+            },
+            {
+              "value": "false",
+              "label": "False"
+            }
+          ]
+        },
+        {
+          "id": "ch_review_img2",
+          "type": "image_picker",
+          "label": "Day 1 - Day 60"
+        },
+        {
+          "id": "title2",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "id": "heading2",
+          "type": "text",
+          "label": "Name"
+        },
+        {
+          "type": "textarea",
+          "id": "ch_review_content2",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review Three"
+        },
+        {
+          "type": "select",
+          "id": "review__Count3",
+          "label": "Review Three",
+          "default": "false",
+          "options": [
+            {
+              "value": "true",
+              "label": "True"
+            },
+            {
+              "value": "false",
+              "label": "False"
+            }
+          ]
+        },
+        {
+          "id": "ch_review_img3",
+          "type": "image_picker",
+          "label": "Day 1 - Day 60"
+        },
+        {
+          "id": "title3",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "id": "heading3",
+          "type": "text",
+          "label": "Name"
+        },
+        {
+          "type": "textarea",
+          "id": "ch_review_content3",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review Four"
+        },
+        {
+          "type": "select",
+          "id": "review__Count4",
+          "label": "Review Four",
+          "default": "false",
+          "options": [
+            {
+              "value": "true",
+              "label": "True"
+            },
+            {
+              "value": "false",
+              "label": "False"
+            }
+          ]
+        },
+        {
+          "id": "ch_review_img4",
+          "type": "image_picker",
+          "label": "Day 1 - Day 60"
+        },
+        {
+          "id": "title4",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "id": "heading4",
+          "type": "text",
+          "label": "Name"
+        },
+        {
+          "type": "textarea",
+          "id": "ch_review_content4",
+          "label": "Review"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Specialized Review Slide",
+      "category": "Layout",
+      "settings": {
+
+      }
+    }
+  ]
+}
+{% endschema %}

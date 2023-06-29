@@ -1,0 +1,44 @@
+{% assign reviewCount = 1000000 %}
+{% assign reviewCount1 = 1000000 %}
+{% assign reviewCount2 = 1000000 %}
+<div class="px-md-3 owl-carousel owl-theme mt-md-4" id="hairchallenge-slide1" data-flickity='{ "prevNextButtons": true, "wrapAround": false, "contain": true, "groupCells": true, "pageDots": false, "cellAlign": "left", "imagesLoaded": true, "adaptiveHeight": true, "arrowShape": "M30.8 100 0 49.7 30.8 0l3.4 2.1L4.7 49.7l29.5 48.2z" }'>
+  {% for block in section.blocks %}
+  	<div class="carousel-cell col-md-3 col-12 px-md-2">
+      {% case block.type %}
+
+      {% when '60day-challenge1' %}
+      {% include '60day_challenge_review1' %}
+
+      {% endcase %}
+    </div>
+  {% endfor %}
+</div>
+
+
+	  {% schema %}
+        {
+          "blocks": [
+            {
+              "type": "60day-challenge1",
+              "name": "60 Day Challenge",
+              "settings": [
+				{
+                   "id": "ch_review_img",
+                   "type": "image_picker",
+                   "label": "Day 1 - Day 60"
+                },
+				{
+                   "id": "title",
+                   "type": "text",
+                   "label": "Name"
+                },
+				{
+                   "type": "textarea",
+                   "id": "ch_review_content",
+                   "label": "Review"
+                }
+              ]
+            }
+          ]
+        }
+      {% endschema %}

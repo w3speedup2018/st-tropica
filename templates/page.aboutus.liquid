@@ -1,0 +1,19 @@
+{% comment %}
+<div class="page clearfix">
+  <h1 class="title text-center py-4">
+    {{ page.title }}
+  </h1>
+</div>{% endcomment %}
+
+
+<section class="stt-pink-bg stt-abt-us text-center">
+  <h1 class="home-h1-a">Creators of<br class="d-block d-md-none"> the 60 Day Hair Challenge</h1>
+  <p class="home-p-a mb-0">Home of the 100 Day <br class="d-block d-md-none"> Money Back Guarantee</p>
+</section>
+<div class="d-none d-md-block text-center mb-n5">
+  <img src="{{ 'ingredients_page_wave_white.png' | asset_img_url: '10x' }}" data-src="{{ 'ingredients_page_wave_white.png' | asset_url }}" class="lazyload blur-up wave-top img-fluid p-0 mt-n5" alt="ST.Tropica Wave"/>
+</div>
+<img src="{{ 'ingredients_page_wave_m.png' | asset_img_url: '10x' }}" data-src="{{ 'ingredients_page_wave_m.png' | asset_url }}" class="lazyload blur-up wave-bottom img-fluid p-0 d-block d-md-none  mt-n3" alt="ST.Tropica Wave" data-uw-rm-ima-original="st.tropica wave">
+
+
+{{ page.content }}

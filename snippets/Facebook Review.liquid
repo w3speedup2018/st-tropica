@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-auto pr-0">
+      <img alt="sttropica facebook review" class="fb-avatar lazyload transition--blur-up img-fluid" src="{{block.settings.fb_review_img | img_url : 'large' }}"/>
+  </div>
+  <div class="col">
+    <div class="fb-r-com">
+
+      <h2 class="mb-0">{{block.settings.title}}</h2>
+      {{block.settings.fb_review_content}}
+
+      {% if block.settings.fb_react_id == 'Yes' %}
+
+      <div class="fb-react">
+
+        {% if block.settings.fb_emoji_id == '2' %}
+        	<img src="{{block.settings.fb_emoji_1}}" alt="sttropica facebook review emoji" class="fb-avatar">
+        	<img src="{{block.settings.fb_emoji_2}}" alt="sttropica facebook review emoji" class="fb-avatar">
+        {% else %}
+        	<img src="{{block.settings.fb_emoji_1}}" alt="sttropica facebook review emoji" class="fb-avatar">
+        {% endif %}
+
+        <span>{{block.settings.fb_react_count}}</span>
+      </div>
+
+      {% endif %}
+
+    </div>
+
+    {% if block.settings.fb_img_id == 'Yes' %}
+
+    <div class=fb-r-img>
+      <img alt="sttropica facebook review" class="fb-featured-img lazyload transition--blur-up img-fluid" src="{{block.settings.fb_review_feature_img | img_url : 'large' }}"/>
+    </div>
+
+    {% endif %}
+
+    <span class="fb-r-c-b">
+      {% if block.settings.fb_react_id == 'Yes' and block.settings.fb_emoji_1 == '//cdn.shopify.com/s/files/1/0818/8965/files/1.png' %}
+      <span class="fb-red">Love</span>
+      {% else %}
+      Like
+      {% endif %}
+      <span class=fb-r-c-b-d>.</span>Reply<span class=fb-r-c-b-d>.</span>{{block.settings.fb_review_date}}</span>
+  </div>
+</div>

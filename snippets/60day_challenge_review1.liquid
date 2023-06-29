@@ -1,0 +1,36 @@
+{% assign reviewCount = reviewCount | plus:1 %}
+{% assign reviewCount1 = reviewCount1 | plus:1 %}
+{% assign reviewCount2 = reviewCount2 | plus:1 %}
+{% comment %}<img alt="sttropica review" class="lazyload transition--blur-up img-fluid" src="{{block.settings.ch_review_img | img_url : 'large' }}"/>
+<div class="summary-cont">
+  <div class="fc-star"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></div>
+  <div id="summary">
+    <p class="more collapse" id="collapseSummary{{reviewCount}}">{{block.settings.ch_review_content}}</p>
+    <a class="collapsed stt-pink-text" data-bs-toggle="collapse" href="#collapseSummary{{reviewCount1}}" aria-expanded="false" aria-controls="collapseSummary{{reviewCount2}}"></a>
+  </div>
+  <span class="vitamin-review-span">- {{block.settings.title}}</span>
+</div>{% endcomment %}
+
+
+  <img src="{{block.settings.ch_review_img | img_url : 'large' }}" data-src="{{block.settings.ch_review_img | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h">
+  <div class="hvrbox-layer_top hvrbox-layer_slideup text-center pt-3">
+    <div class="hvrbox-text">
+      <div class="fc-star">
+        <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+      </div>
+      <div id="summary">
+        <p class="more collapse" id="collapseSummary500">{{block.settings.ch_review_content}}</p>
+      </div>
+      <span class="home-vitamin-review-span stt-pink-text">- {{block.settings.title}}</span>
+      <a data-fancybox data-options='{"src": "#review{{reviewCount}}"}' href="javascript:;" class="stt-pink-text right">- Read More</a>
+    </div>
+  </div>
+  <!--Review popup-->
+  <div class="review-popup" id="review{{reviewCount1}}">
+    <img src="{{block.settings.ch_review_img | img_url : 'large' }}" data-src="{{block.settings.ch_review_img | img_url : 'large' }}" alt="ST.Tropica" class="lazyload transition--blur-up hvrbox-layer_bottom img-fluid-h mb-3">
+    <div class="fc-star">
+      <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+    </div>
+    <p data-selectable="true">{{block.settings.ch_review_content}}</p>
+    <span class="home-vitamin-review-span stt-pink-text" data-selectable="true">- {{block.settings.title}}</span>
+  </div>
